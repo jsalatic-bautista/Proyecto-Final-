@@ -1,0 +1,1650 @@
+[
+    {
+        "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+        "opciones": [
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "respuesta": "3",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Los títulos se lograron en 1978, 1986 y 2022."
+    },
+    {
+        "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+        "opciones": [
+            "Brasil",
+            "Italia",
+            "Uruguay",
+            "Argentina"
+        ],
+        "respuesta": "Uruguay",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "El torneo se jugó en Montevideo y la final fue rioplatense."
+    },
+    {
+        "pregunta": "¿En qué país se jugó el Mundial 2022?",
+        "opciones": [
+            "Rusia",
+            "Qatar",
+            "Brasil",
+            "Alemania"
+        ],
+        "respuesta": "Qatar",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Primer Mundial disputado en Medio Oriente y a fin de año."
+    },
+    {
+        "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+        "opciones": [
+            "9",
+            "10",
+            "11",
+            "12"
+        ],
+        "respuesta": "11",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "10 jugadores de campo más el arquero."
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+        "opciones": [
+            "Batistuta",
+            "Maradona",
+            "Agüero",
+            "Messi"
+        ],
+        "respuesta": "Messi",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Superó los 54 goles de Gabriel Batistuta y ya pasó los 100 tantos."
+    },
+    {
+        "pregunta": "¿Qué país tiene más Copas del Mundo ganadas en la historia?",
+        "opciones": [
+            "Alemania",
+            "Italia",
+            "Brasil",
+            "Argentina"
+        ],
+        "respuesta": "Brasil",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Es el pentacampeón del mundo (1958, 1962, 1970, 1994, 2002)."
+    },
+    {
+        "pregunta": "¿Quién anotó el famoso 'Gol del Siglo' y 'La Mano de Dios' en México 1986?",
+        "opciones": [
+            "Diego Maradona",
+            "Jorge Valdano",
+            "Mario Kempes",
+            "Claudio Caniggia"
+        ],
+        "respuesta": "Diego Maradona",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Ocurrió el 22 de junio de 1986 ante Inglaterra en el Estadio Azteca."
+    },
+    {
+        "pregunta": "¿En qué año ganó Francia su primer Mundial como local?",
+        "opciones": [
+            "1994",
+            "1998",
+            "2002",
+            "2006"
+        ],
+        "respuesta": "1998",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Zinedine Zidane marcó dos goles de cabeza en la final ante Brasil (3-0)."
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador histórico de las Copas del Mundo?",
+        "opciones": [
+            "Ronaldo Nazário",
+            "Miroslav Klose",
+            "Gerd Müller",
+            "Pelé"
+        ],
+        "respuesta": "Miroslav Klose",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "El delantero alemán anotó 16 goles entre 2002 y 2014."
+    },
+    {
+        "pregunta": "¿Qué selección africana fue la primera en llegar a semifinales de un Mundial?",
+        "opciones": [
+            "Senegal",
+            "Ghana",
+            "Camerún",
+            "Marruecos"
+        ],
+        "respuesta": "Marruecos",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Logró la hazaña histórica en el Mundial de Qatar 2022 tras vencer a Portugal."
+    },
+    {
+        "pregunta": "¿Quién fue el goleador del Mundial de Argentina 1978?",
+        "opciones": [
+            "Mario Kempes",
+            "Daniel Passarella",
+            "Leopoldo Luque",
+            "Ubaldo Fillol"
+        ],
+        "respuesta": "Mario Kempes",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "'El Matador' anotó 6 goles, incluidos 2 en la final frente a Holanda."
+    },
+    {
+        "pregunta": "¿Qué jugador anotó tres goles en la final del Mundial Qatar 2022?",
+        "opciones": [
+            "Lionel Messi",
+            "Kylian Mbappé",
+            "Julián Álvarez",
+            "Olivier Giroud"
+        ],
+        "respuesta": "Kylian Mbappé",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Anotó dos de penal y una volea espectacular para Francia."
+    },
+    {
+        "pregunta": "¿Qué país fue subcampeón del mundo tres veces sin haber ganado nunca el título?",
+        "opciones": [
+            "Hungría",
+            "Suecia",
+            "Países Bajos",
+            "Checoslovaquia"
+        ],
+        "respuesta": "Países Bajos",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Llegó a las finales de 1974, 1978 y 2010."
+    },
+    {
+        "pregunta": "¿En qué Mundial se utilizó por primera vez la tarjeta roja y amarilla?",
+        "opciones": [
+            "Inglaterra 1966",
+            "México 1970",
+            "Alemania 1974",
+            "Argentina 1978"
+        ],
+        "respuesta": "México 1970",
+        "categoria": "Mundiales",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "Fueron introducidas por la FIFA tras los incidentes de 1966."
+    },
+    {
+        "pregunta": "¿Quién convirtió el penal definitorio en la tanda de Argentina vs Francia en 2022?",
+        "opciones": [
+            "Leandro Paredes",
+            "Paulo Dybala",
+            "Gonzalo Montiel",
+            "Enzo Fernández"
+        ],
+        "respuesta": "Gonzalo Montiel",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'Somos todos Montiel...' gritó el relator antes del derechazo cruzado."
+    },
+    {
+        "pregunta": "¿Qué arquero ganó el Guante de Oro en el Mundial de Qatar 2022?",
+        "opciones": [
+            "Thibaut Courtois",
+            "Dominik Livakovic",
+            "Yassine Bounou",
+            "Emiliano Martínez"
+        ],
+        "respuesta": "Emiliano Martínez",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "El 'Dibu' brilló en los penales ante Países Bajos y Francia, y con la atajada a Kolo Muani."
+    },
+    {
+        "pregunta": "¿En qué Mundial se produjo el histórico 'Maracanazo' (Uruguay 2 - Brasil 1)?",
+        "opciones": [
+            "1938",
+            "1950",
+            "1954",
+            "1958"
+        ],
+        "respuesta": "1950",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Alcides Ghiggia anotó el gol decisivo ante unas 200.000 personas en Río de Janeiro."
+    },
+    {
+        "pregunta": "¿Quién marcó el gol más rápido en la historia de los Mundiales (a los 11 segundos)?",
+        "opciones": [
+            "Hakan Sükür",
+            "Bryan Robson",
+            "Clint Dempsey",
+            "Vavá"
+        ],
+        "respuesta": "Hakan Sükür",
+        "categoria": "Mundiales",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "Ocurrió en el partido por el tercer puesto de Corea-Japón 2002 ante Corea del Sur."
+    },
+    {
+        "pregunta": "¿Cuántas selecciones participaron de la fase final de Qatar 2022?",
+        "opciones": [
+            "24",
+            "28",
+            "32",
+            "36"
+        ],
+        "respuesta": "32",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue el último certamen con formato de 32 equipos antes de la ampliación a 48."
+    },
+    {
+        "pregunta": "¿Qué jugador disputó 5 Mundiales y anotó en todos ellos?",
+        "opciones": [
+            "Lionel Messi",
+            "Cristiano Ronaldo",
+            "Lothar Matthäus",
+            "Rafael Márquez"
+        ],
+        "respuesta": "Cristiano Ronaldo",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Anotó al menos un gol en 2006, 2010, 2014, 2018 y 2022."
+    },
+    {
+        "pregunta": "¿Contra qué país debutó oficialmente Lionel Messi en la Selección mayor en 2005?",
+        "opciones": [
+            "Brasil",
+            "Hungría",
+            "Paraguay",
+            "España"
+        ],
+        "respuesta": "Hungría",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue expulsado a los 47 segundos de haber ingresado al campo de juego."
+    },
+    {
+        "pregunta": "¿Quién fue el director técnico de Argentina en el Mundial de México 1986?",
+        "opciones": [
+            "César Luis Menotti",
+            "Carlos Bilardo",
+            "Alfio Basile",
+            "Marcelo Bielsa"
+        ],
+        "respuesta": "Carlos Bilardo",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'El Narigón' implementó el recordado esquema con líbero y dos stoppers (3-5-2)."
+    },
+    {
+        "pregunta": "¿Quién marcó el gol de la victoria en la final de la Copa América 2021 en el Maracaná?",
+        "opciones": [
+            "Lionel Messi",
+            "Ángel Di María",
+            "Lautaro Martínez",
+            "Rodrigo De Paul"
+        ],
+        "respuesta": "Ángel Di María",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Definió picándola por encima de Ederson tras un pase milimétrico de De Paul."
+    },
+    {
+        "pregunta": "¿En qué año conquistó Argentina su primera Copa América de la historia?",
+        "opciones": [
+            "1916",
+            "1921",
+            "1925",
+            "1929"
+        ],
+        "respuesta": "1921",
+        "categoria": "Selección Argentina",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue la 5ta edición del Campeonato Sudamericano, disputada en Buenos Aires."
+    },
+    {
+        "pregunta": "¿Cuántos goles marcó Diego Maradona en el Mundial de México 1986?",
+        "opciones": [
+            "4",
+            "5",
+            "6",
+            "7"
+        ],
+        "respuesta": "5",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "1 a Italia, 2 a Inglaterra y 2 a Bélgica."
+    },
+    {
+        "pregunta": "¿Quién fue el arquero héroe en los penales contra Yugoslavia e Italia en Italia 1990?",
+        "opciones": [
+            "Nery Pumpido",
+            "Sergio Goycochea",
+            "Luis Islas",
+            "Fabián Cancelarich"
+        ],
+        "respuesta": "Sergio Goycochea",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'Goyco' ingresó tras la fractura de Pumpido y atajó 4 penales históricos."
+    },
+    {
+        "pregunta": "¿Quién anotó el gol de tiro libre en el minuto 93 ante Perú en las Eliminatorias rumbo a 2010?",
+        "opciones": [
+            "Martín Palermo",
+            "Gonzalo Higuaín",
+            "Juan Román Riquelme",
+            "Lionel Messi"
+        ],
+        "respuesta": "Martín Palermo",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue bajo un diluvio en el Monumental y festejado por Maradona con zambullida."
+    },
+    {
+        "pregunta": "¿Cuántas Copas América ha ganado Argentina hasta la edición 2024?",
+        "opciones": [
+            "14",
+            "15",
+            "16",
+            "17"
+        ],
+        "respuesta": "16",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Superó a Uruguay (15) tras consagrarse bicampeón en Estados Unidos 2024."
+    },
+    {
+        "pregunta": "¿Quién fue el capitán de la Selección Argentina en el Mundial de 1978?",
+        "opciones": [
+            "Ubaldo Fillol",
+            "Daniel Passarella",
+            "Mario Kempes",
+            "Américo Gallego"
+        ],
+        "respuesta": "Daniel Passarella",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "'El Gran Capitán' levantó la primera Copa del Mundo para Argentina."
+    },
+    {
+        "pregunta": "¿A qué selección venció Argentina 3-0 en la 'Finalissima' de Wembley 2022?",
+        "opciones": [
+            "España",
+            "Inglaterra",
+            "Italia",
+            "Portugal"
+        ],
+        "respuesta": "Italia",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Enfrentó al campeón de la Copa América con el campeón de la Eurocopa."
+    },
+    {
+        "pregunta": "¿Quién asistió a Claudio Caniggia para el recordado gol a Brasil en Italia 1990?",
+        "opciones": [
+            "Diego Maradona",
+            "Jorge Burruchaga",
+            "Pedro Troglio",
+            "Gabriel Calderón"
+        ],
+        "respuesta": "Diego Maradona",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Dejó a tres brasileños en el camino y filtró la pelota de zurda entre las piernas de Alemão."
+    },
+    {
+        "pregunta": "¿Qué jugador convirtió el penal decisivo en semifinales de Brasil 2014 ante Holanda?",
+        "opciones": [
+            "Sergio Agüero",
+            "Lionel Messi",
+            "Maxi Rodríguez",
+            "Ezequiel Garay"
+        ],
+        "respuesta": "Maxi Rodríguez",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Rompió el arco de Cillessen para llevar a la Argentina a la final en el Maracaná."
+    },
+    {
+        "pregunta": "¿En qué club jugaba Lionel Scaloni cuando fue convocado al Mundial de Alemania 2006?",
+        "opciones": [
+            "Deportivo La Coruña",
+            "West Ham",
+            "Racing de Santander",
+            "Lazio"
+        ],
+        "respuesta": "West Ham",
+        "categoria": "Selección Argentina",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "Había sido cedido a la Premier League inglesa meses antes del torneo."
+    },
+    {
+        "pregunta": "¿Qué club ha ganado más Copas Libertadores de América en la historia?",
+        "opciones": [
+            "Boca Juniors",
+            "Independiente",
+            "River Plate",
+            "Peñarol"
+        ],
+        "respuesta": "Independiente",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'El Rey de Copas' suma 7 títulos continentales (4 de ellos consecutivos en los '70)."
+    },
+    {
+        "pregunta": "¿Qué club europeo tiene el récord de más títulos de UEFA Champions League?",
+        "opciones": [
+            "AC Milan",
+            "Bayern Múnich",
+            "Real Madrid",
+            "Liverpool"
+        ],
+        "respuesta": "Real Madrid",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Supera las 15 consagraciones en la máxima competición europea."
+    },
+    {
+        "pregunta": "¿En qué ciudad se disputó la final de la Copa Libertadores 2018 entre River y Boca?",
+        "opciones": [
+            "Asunción",
+            "Madrid",
+            "Lima",
+            "Santiago"
+        ],
+        "respuesta": "Madrid",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Se jugó en el estadio Santiago Bernabéu el 9 de diciembre de 2018."
+    },
+    {
+        "pregunta": "¿Qué club argentino logró el histórico récord de 40 partidos invicto en el profesionalismo?",
+        "opciones": [
+            "River Plate (1942)",
+            "Boca Juniors (1998-1999)",
+            "Racing Club (1966)",
+            "San Lorenzo (2001)"
+        ],
+        "respuesta": "Boca Juniors (1998-1999)",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Bajo la dirección técnica de Carlos Bianchi, superó el récord del Racing de José."
+    },
+    {
+        "pregunta": "¿Qué equipo inglés es conocido popularmente como 'The Red Devils' (Los Diablos Rojos)?",
+        "opciones": [
+            "Liverpool",
+            "Arsenal",
+            "Manchester United",
+            "Chelsea"
+        ],
+        "respuesta": "Manchester United",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Juegan de local en el mítico estadio de Old Trafford."
+    },
+    {
+        "pregunta": "¿Qué club argentino fue el primero en consagrarse Campeón del Mundo (Copa Intercontinental)?",
+        "opciones": [
+            "Independiente (1964)",
+            "Racing Club (1967)",
+            "Estudiantes (1968)",
+            "Boca Juniors (1977)"
+        ],
+        "respuesta": "Racing Club (1967)",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Venció al Celtic de Escocia con el recordado 'zapatazo' del Chango Cárdenas en Montevideo."
+    },
+    {
+        "pregunta": "¿Qué equipo ganó la Copa Libertadores tres veces consecutivas entre 1968 y 1970?",
+        "opciones": [
+            "Independiente",
+            "Santos",
+            "Estudiantes de La Plata",
+            "Nacional"
+        ],
+        "respuesta": "Estudiantes de La Plata",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "El equipo de Osvaldo Zubeldía, con Bilardo y Verón como figuras."
+    },
+    {
+        "pregunta": "¿Cómo se llama el estadio de Boca Juniors ubicado en el barrio de La Boca?",
+        "opciones": [
+            "El Monumental",
+            "La Bombonera",
+            "El Cilindro",
+            "El Libertadores"
+        ],
+        "respuesta": "La Bombonera",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Su nombre oficial es Estadio Alberto J. Armando."
+    },
+    {
+        "pregunta": "¿Qué club italiano viste tradicionalmente camiseta a bastones 'Rossoneri' (rojo y negro)?",
+        "opciones": [
+            "Juventus",
+            "Inter de Milán",
+            "AC Milan",
+            "Roma"
+        ],
+        "respuesta": "AC Milan",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Ha ganado 7 Copas de Europa / Champions League."
+    },
+    {
+        "pregunta": "¿En qué año logró San Lorenzo consagrarse campeón de su primera Copa Libertadores?",
+        "opciones": [
+            "2012",
+            "2014",
+            "2016",
+            "2018"
+        ],
+        "respuesta": "2014",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Dirigido por Edgardo Bauza, venció a Nacional de Paraguay en la final."
+    },
+    {
+        "pregunta": "¿Quién marcó el gol de River para el 3-1 definitivo ante Boca en Madrid 2018?",
+        "opciones": [
+            "Lucas Pratto",
+            "Juan Fernando Quintero",
+            "Gonzalo 'Pity' Martínez",
+            "Ignacio Scocco"
+        ],
+        "respuesta": "Gonzalo 'Pity' Martínez",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'Y va el tercero, y va el tercero...': corrida inolvidable con el arco vacío."
+    },
+    {
+        "pregunta": "¿Qué club alemán ha ganado 11 títulos consecutivos de Bundesliga entre 2013 y 2023?",
+        "opciones": [
+            "Borussia Dortmund",
+            "Bayern Múnich",
+            "Bayer Leverkusen",
+            "RB Leipzig"
+        ],
+        "respuesta": "Bayern Múnich",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "El gigante de Baviera juega en el Allianz Arena."
+    },
+    {
+        "pregunta": "¿Cuál es el club con más títulos de Primera División en el fútbol argentino?",
+        "opciones": [
+            "Boca Juniors",
+            "River Plate",
+            "Racing Club",
+            "Independiente"
+        ],
+        "respuesta": "River Plate",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Supera las 37 ligas locales en el profesionalismo."
+    },
+    {
+        "pregunta": "¿Qué equipo sudamericano ganó la Copa Intercontinental 2000 derrotando al Real Madrid?",
+        "opciones": [
+            "Vasco da Gama",
+            "Boca Juniors",
+            "Palmeiras",
+            "Olimpia"
+        ],
+        "respuesta": "Boca Juniors",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Martín Palermo anotó 2 goles en los primeros 6 minutos en Tokio."
+    },
+    {
+        "pregunta": "¿Cuántos Balones de Oro tiene Lionel Messi en su carrera?",
+        "opciones": [
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "respuesta": "8",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Ganó su octavo galardón en 2023 tras levantar la Copa del Mundo en Qatar."
+    },
+    {
+        "pregunta": "¿A qué legendario jugador brasileño apodaban 'O Rei'?",
+        "opciones": [
+            "Zico",
+            "Garrincha",
+            "Pelé",
+            "Romário"
+        ],
+        "respuesta": "Pelé",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Edson Arantes do Nascimento, único futbolista en ganar 3 Mundiales."
+    },
+    {
+        "pregunta": "¿Quién es conocido en el fútbol mundial como 'El Bicho' o 'CR7'?",
+        "opciones": [
+            "Ronaldo Nazário",
+            "Cristiano Ronaldo",
+            "Ronaldinho",
+            "Roberto Carlos"
+        ],
+        "respuesta": "Cristiano Ronaldo",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Máximo goleador histórico de selecciones y del Real Madrid."
+    },
+    {
+        "pregunta": "¿Qué dorsal emblemático vistió Johan Cruyff en la Selección de Holanda?",
+        "opciones": [
+            "9",
+            "10",
+            "11",
+            "14"
+        ],
+        "respuesta": "14",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Rompió la tradición de la numeración del 1 al 11 y patentó ese número."
+    },
+    {
+        "pregunta": "¿Con qué club debutó profesionalmente Diego Armando Maradona en 1976?",
+        "opciones": [
+            "Boca Juniors",
+            "Argentinos Juniors",
+            "Newell's Old Boys",
+            "Sevilla"
+        ],
+        "respuesta": "Argentinos Juniors",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Debutó el 20 de octubre de 1976 ante Talleres con la camiseta del 'Bicho'."
+    },
+    {
+        "pregunta": "¿Quién ganó el Balón de Oro en 2018 rompiendo la hegemonía de Messi y Cristiano?",
+        "opciones": [
+            "Antoine Griezmann",
+            "Luka Modric",
+            "Kylian Mbappé",
+            "Mohamed Salah"
+        ],
+        "respuesta": "Luka Modric",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Subcampeón del mundo con Croacia y campeón de Champions con el Real Madrid."
+    },
+    {
+        "pregunta": "¿Qué arquero es apodado 'La Araña Negra' y es el único guardameta en ganar un Balón de Oro?",
+        "opciones": [
+            "Dino Zoff",
+            "Lev Yashin",
+            "Gordon Banks",
+            "Sepp Maier"
+        ],
+        "respuesta": "Lev Yashin",
+        "categoria": "Jugadores",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "El portero de la Unión Soviética ganó el premio de France Football en 1963."
+    },
+    {
+        "pregunta": "¿En qué club europeo desarrolló la mayor parte de su carrera Francesco Totti?",
+        "opciones": [
+            "Juventus",
+            "AS Roma",
+            "Lazio",
+            "Fiorentina"
+        ],
+        "respuesta": "AS Roma",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'Il Capitano' jugó 25 temporadas en el mismo club sin vestir otra camiseta."
+    },
+    {
+        "pregunta": "¿Quién fue apodado 'La Saeta Rubia' y es considerado el gran mito del Real Madrid?",
+        "opciones": [
+            "Ferenc Puskás",
+            "Alfredo Di Stéfano",
+            "Paco Gento",
+            "Raymond Kopa"
+        ],
+        "respuesta": "Alfredo Di Stéfano",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Inició su carrera en River Plate y conquistó 5 Copas de Europa consecutivas."
+    },
+    {
+        "pregunta": "¿Qué mediocampista español anotó el gol decisivo en la final del Mundial de Sudáfrica 2010?",
+        "opciones": [
+            "Xavi Hernández",
+            "Andrés Iniesta",
+            "Cesc Fàbregas",
+            "David Silva"
+        ],
+        "respuesta": "Andrés Iniesta",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Anotó en el minuto 116 del alargue frente a Holanda y dedicó el gol a Dani Jarque."
+    },
+    {
+        "pregunta": "¿Qué apodo tiene el arquero argentino Emiliano Martínez?",
+        "opciones": [
+            "El Mono",
+            "El Pato",
+            "Dibu",
+            "Chiquito"
+        ],
+        "respuesta": "Dibu",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Le pusieron ese apodo en la pensión de Independiente por un personaje animado."
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador extranjero en la historia del fútbol argentino?",
+        "opciones": [
+            "Arsenio Erico",
+            "Enzo Francescoli",
+            "Delfín Benítez Cáceres",
+            "Radamel Falcao"
+        ],
+        "respuesta": "Arsenio Erico",
+        "categoria": "Jugadores",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "El delantero paraguayo anotó 295 goles jugando para Independiente y Huracán."
+    },
+    {
+        "pregunta": "¿En qué país se inventaron las reglas formales modernas del fútbol (1863)?",
+        "opciones": [
+            "Escocia",
+            "Inglaterra",
+            "Francia",
+            "Uruguay"
+        ],
+        "respuesta": "Inglaterra",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Se fundó The Football Association en la Freemasons' Tavern de Londres."
+    },
+    {
+        "pregunta": "¿En qué año se fundó la FIFA en París?",
+        "opciones": [
+            "1898",
+            "1904",
+            "1912",
+            "1930"
+        ],
+        "respuesta": "1904",
+        "categoria": "Historia",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue impulsada por delegados de siete asociaciones europeas."
+    },
+    {
+        "pregunta": "¿Qué trofeo original de los Mundiales fue robado y nunca recuperado en Brasil (1983)?",
+        "opciones": [
+            "Copa Jules Rimet",
+            "Copa FIFA",
+            "Copa Artemio Franchi",
+            "Copa de Oro"
+        ],
+        "respuesta": "Copa Jules Rimet",
+        "categoria": "Historia",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Brasil la obtuvo en propiedad definitiva al ganar su tercer Mundial en 1970."
+    },
+    {
+        "pregunta": "¿A qué distancia exacta del arco se ubica el punto del tiro penal?",
+        "opciones": [
+            "9,15 metros",
+            "11 metros",
+            "12 yardas (10,97 metros)",
+            "10 metros"
+        ],
+        "respuesta": "11 metros",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Reglamentariamente equivale a 12 yardas (aproximadamente 11 metros)."
+    },
+    {
+        "pregunta": "¿Cuánto dura reglamentariamente cada tiempo de un alargue de fútbol?",
+        "opciones": [
+            "10 minutos",
+            "15 minutos",
+            "20 minutos",
+            "25 minutos"
+        ],
+        "respuesta": "15 minutos",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Son dos tiempos de 15 minutos para un total de 30 minutos extras."
+    },
+    {
+        "pregunta": "¿En qué año se creó la Copa Libertadores de América?",
+        "opciones": [
+            "1950",
+            "1960",
+            "1965",
+            "1972"
+        ],
+        "respuesta": "1960",
+        "categoria": "Historia",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Peñarol de Uruguay fue el primer campeón en la edición inaugural."
+    },
+    {
+        "pregunta": "¿Cómo se llamaba la famosa 'Máquina' de River Plate de la década de 1940?",
+        "opciones": [
+            "Muñoz, Moreno, Pedernera, Labruna y Loustau",
+            "Di Stéfano, Labruna, Walter Gómez, Moreno y Loustau",
+            "Pedernera, Peucelle, Bernabé Ferreyra, Minella y Labruna",
+            "Carrizo, Rossi, Moreno, Pedernera y Labruna"
+        ],
+        "respuesta": "Muñoz, Moreno, Pedernera, Labruna y Loustau",
+        "categoria": "Historia",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "Considerada una de las mejores delanteras de la historia del fútbol mundial."
+    },
+    {
+        "pregunta": "¿Qué estadio del fútbol argentino fue escenario de la final del Mundial de 1978?",
+        "opciones": [
+            "La Bombonera",
+            "El Monumental",
+            "Gigante de Arroyito",
+            "José Amalfitani"
+        ],
+        "respuesta": "El Monumental",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "El estadio de River Plate en el barrio de Núñez."
+    },
+    {
+        "pregunta": "¿Qué regla del fútbol se implementó en 1992 para evitar el juego pasivo y demoras?",
+        "opciones": [
+            "El fuera de juego",
+            "La prohibición de pase atrás al arquero con el pie",
+            "Los 5 cambios",
+            "El uso de espinilleras"
+        ],
+        "respuesta": "La prohibición de pase atrás al arquero con el pie",
+        "categoria": "Historia",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Si un defensor le pasa la pelota con el pie al arquero, este no puede agarrarla con las manos."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿La Selección Argentina disputó la final del primer Mundial en 1930?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "Argentina cayó 4-2 en la final disputada ante Uruguay en el Estadio Centenario."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Pelé anotó goles en cuatro Copas del Mundo distintas?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "verdadero_falso",
+        "pista_var": "Marcó en Suecia 1958, Chile 1962, Inglaterra 1966 y México 1970."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Lionel Messi ganó su primera Champions League en 2006?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "verdadero_falso",
+        "pista_var": "Formaba parte del plantel del Barcelona de Rijkaard que venció al Arsenal en París."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Inglaterra ha ganado dos veces la Copa del Mundo?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "FALSO",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "Solo ganó un título mundial, en 1966 como local ante Alemania Federal."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Diego Maradona jugó en Newell's Old Boys de Rosario?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "Vistió la camiseta rojinegra en 1993, previo al Mundial de Estados Unidos 1994."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Un tiro libre indirecto puede ingresar al arco rival sin ser tocado por otro jugador y ser gol válido?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "FALSO",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "En un tiro libre indirecto debe tocar la pelota otro jugador para que sea gol."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Carlos Bilardo y Franz Beckenbauer se enfrentaron como directores técnicos en dos finales del mundo consecutivas?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "verdadero_falso",
+        "pista_var": "Se midieron en las finales de México 1986 y de Italia 1990."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Cristiano Ronaldo debutó profesionalmente en el Manchester United?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "FALSO",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "Debutó en la Primera División de Portugal con el Sporting de Lisboa."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿El arquero José Luis Chilavert llegó a marcar un hat-trick (3 goles) en un partido oficial?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Clubes",
+        "dificultad": "dificil",
+        "tipo": "verdadero_falso",
+        "pista_var": "En 1999 con Vélez Sarsfield le anotó 3 goles de penal a Ferro Carril Oeste."
+    },
+    {
+        "pregunta": "Verdadero o Falso: ¿Zinedine Zidane fue expulsado en la final del Mundial de Alemania 2006?",
+        "opciones": [
+            "VERDADERO",
+            "FALSO"
+        ],
+        "respuesta": "VERDADERO",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "verdadero_falso",
+        "pista_var": "Vio la tarjeta roja por un cabezazo a Marco Materazzi en el tiempo suplementario."
+    },
+    {
+        "pregunta": "¿Quién es este legendario futbolista?",
+        "opciones": [
+            "Gabriel Batistuta",
+            "Hernán Crespo",
+            "Claudio Caniggia",
+            "Mario Kempes"
+        ],
+        "respuesta": "Gabriel Batistuta",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Es el único jugador de la historia en marcar hat-tricks en dos Mundiales distintos (1994 y 1998).",
+            "Pista 2: Apodado 'Batigol', fue el máximo goleador histórico de la Fiorentina de Italia."
+        ],
+        "pista_var": "Brilló con la número 9 de la Selección y anotó 54 goles oficiales."
+    },
+    {
+        "pregunta": "¿Qué club histórico sudamericano es?",
+        "opciones": [
+            "Olimpia",
+            "Nacional",
+            "Peñarol",
+            "Colo-Colo"
+        ],
+        "respuesta": "Colo-Colo",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Es el único club de su país en consagrarse campeón de la Copa Libertadores.",
+            "Pista 2: Ganó la Copa en 1991 bajo la dirección técnica del croata Mirko Jozic."
+        ],
+        "pista_var": "Juega de local en el Estadio Monumental David Arellano de Santiago de Chile."
+    },
+    {
+        "pregunta": "¿Quién es este director técnico campeón?",
+        "opciones": [
+            "Pep Guardiola",
+            "José Mourinho",
+            "Jürgen Klopp",
+            "Carlo Ancelotti"
+        ],
+        "respuesta": "Carlo Ancelotti",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Es el único entrenador en la historia en ganar las cinco grandes ligas europeas (España, Inglaterra, Italia, Alemania y Francia).",
+            "Pista 2: Es el DT con más títulos de UEFA Champions League ganados en la historia (5 trofeos)."
+        ],
+        "pista_var": "Apodado 'Carletto', dirigió a Milan, Chelsea, PSG, Bayern Múnich y Real Madrid."
+    },
+    {
+        "pregunta": "¿Quién es este histórico goleador de Mundiales?",
+        "opciones": [
+            "Ronaldo Nazário",
+            "Romário",
+            "Rivaldo",
+            "Ronaldinho"
+        ],
+        "respuesta": "Ronaldo Nazário",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Apodado 'El Fenómeno', ganó el Balón de Oro en 1997 y 2002.",
+            "Pista 2: Marcó los dos goles en la final del Mundial de Corea-Japón 2002 ante Oliver Kahn."
+        ],
+        "pista_var": "Brilló en Barcelona, Inter, Real Madrid y la Selección de Brasil."
+    },
+    {
+        "pregunta": "¿De qué mítico estadio de fútbol se trata?",
+        "opciones": [
+            "Wembley",
+            "Santiago Bernabéu",
+            "San Siro",
+            "Camp Nou"
+        ],
+        "respuesta": "San Siro",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Es compartido por dos gigantes del fútbol europeo que son archirrivales de la misma ciudad.",
+            "Pista 2: Lleva también el nombre oficial de Estadio Giuseppe Meazza."
+        ],
+        "pista_var": "Ubicado en la ciudad de Milán, Italia."
+    },
+    {
+        "pregunta": "¿Quién es este mediocampista argentino?",
+        "opciones": [
+            "Fernando Redondo",
+            "Javier Mascherano",
+            "Diego Simeone",
+            "Esteban Cambiasso"
+        ],
+        "respuesta": "Fernando Redondo",
+        "categoria": "Jugadores",
+        "dificultad": "dificil",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Fue elegido el mejor jugador de Europa en el año 2000 por la UEFA.",
+            "Pista 2: Inmortalizó un antológico tacazo de espaldas sobre la línea de fondo ante el Manchester United en Old Trafford."
+        ],
+        "pista_var": "El número 5 elegante que brilló en Argentinos Juniors, Tenerife, Real Madrid y Milan."
+    },
+    {
+        "pregunta": "¿Qué jugador internacional es?",
+        "opciones": [
+            "Erling Haaland",
+            "Robert Lewandowski",
+            "Zlatan Ibrahimovic",
+            "Luka Modric"
+        ],
+        "respuesta": "Zlatan Ibrahimovic",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: Ganó ligas en Países Bajos, Italia, España y Francia, y cinturón negro de taekwondo.",
+            "Pista 2: Marcó un gol de chilena desde 30 metros contra Inglaterra en 2012 que ganó el Premio Puskás."
+        ],
+        "pista_var": "El icónico delantero sueco que jugó en Ajax, Juventus, Inter, Barcelona, Milan y PSG."
+    },
+    {
+        "pregunta": "¿Qué selección nacional es?",
+        "opciones": [
+            "Croacia",
+            "Bélgica",
+            "Portugal",
+            "Dinamarca"
+        ],
+        "respuesta": "Dinamarca",
+        "categoria": "Historia",
+        "dificultad": "dificil",
+        "tipo": "pistas",
+        "pistas": [
+            "Pista 1: No había clasificado al torneo y entró como invitada de urgencia por la exclusión de Yugoslavia.",
+            "Pista 2: Protagonizó uno de los mayores batacazos de la historia al ganar la Eurocopa de 1992."
+        ],
+        "pista_var": "Los hermanos Laudrup y el arquero Peter Schmeichel integraban aquel plantel."
+    },
+    {
+        "pregunta": "Ordená cronológicamente los 3 Mundiales ganados por Argentina (de más antiguo a más reciente):",
+        "opciones": [
+            "1978",
+            "1986",
+            "2022"
+        ],
+        "respuesta": "1978, 1986, 2022",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "1978 (Argentina)",
+            "1986 (México)",
+            "2022 (Qatar)"
+        ],
+        "pista_var": "Kempes, Maradona y Messi fueron los grandes capitanes y figuras de cada conquista."
+    },
+    {
+        "pregunta": "Ordená los siguientes torneos internacionales ganados por la Selección de Scaloni:",
+        "opciones": [
+            "Copa América 2021",
+            "Finalissima 2022",
+            "Mundial 2022",
+            "Copa América 2024"
+        ],
+        "respuesta": "Copa América 2021, Finalissima 2022, Mundial 2022, Copa América 2024",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "Copa América 2021",
+            "Finalissima 2022",
+            "Mundial 2022",
+            "Copa América 2024"
+        ],
+        "pista_var": "Maracaná primero, Wembley después, Lusail en Qatar y Hard Rock Stadium en Miami."
+    },
+    {
+        "pregunta": "Ordená los clubes en los que jugó Lionel Messi profesionalmente de más viejo a más nuevo:",
+        "opciones": [
+            "FC Barcelona",
+            "Paris Saint-Germain",
+            "Inter Miami"
+        ],
+        "respuesta": "FC Barcelona, Paris Saint-Germain, Inter Miami",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "FC Barcelona (2004-2021)",
+            "Paris Saint-Germain (2021-2023)",
+            "Inter Miami (2023-presente)"
+        ],
+        "pista_var": "Desde La Masia catalana hasta la MLS, pasando por la capital francesa."
+    },
+    {
+        "pregunta": "Ordená los Mundiales en los que Brasil se consagró Campeón:",
+        "opciones": [
+            "Suecia 1958",
+            "México 1970",
+            "USA 1994",
+            "Corea-Japón 2002"
+        ],
+        "respuesta": "Suecia 1958, México 1970, USA 1994, Corea-Japón 2002",
+        "categoria": "Mundiales",
+        "dificultad": "medio",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "Suecia 1958",
+            "México 1970",
+            "USA 1994",
+            "Corea-Japón 2002"
+        ],
+        "pista_var": "El primero con Pelé a los 17 años y el último con el tridente Ronaldo, Rivaldo y Ronaldinho."
+    },
+    {
+        "pregunta": "Ordená cronológicamente las Copas Libertadores ganadas por River Plate:",
+        "opciones": [
+            "1986",
+            "1996",
+            "2015",
+            "2018"
+        ],
+        "respuesta": "1986, 1996, 2015, 2018",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "1986 (Américo Gallego)",
+            "1996 (Enzo Francescoli)",
+            "2015 (Marcelo Barovero)",
+            "2018 (Leonardo Ponzio)"
+        ],
+        "pista_var": "Bambino Veira, Ramón Díaz y dos con Marcelo Gallardo."
+    },
+    {
+        "pregunta": "Ordená las Copas Intercontinentales ganadas por Boca Juniors:",
+        "opciones": [
+            "1977 vs Borussia Mönchengladbach",
+            "2000 vs Real Madrid",
+            "2003 vs AC Milan"
+        ],
+        "respuesta": "1977 vs Borussia Mönchengladbach, 2000 vs Real Madrid, 2003 vs AC Milan",
+        "categoria": "Clubes",
+        "dificultad": "dificil",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "1977 vs Borussia Mönchengladbach",
+            "2000 vs Real Madrid",
+            "2003 vs AC Milan"
+        ],
+        "pista_var": "La primera con el Toto Lorenzo y las dos siguientes con el Virrey Carlos Bianchi."
+    },
+    {
+        "pregunta": "Ordená de más antiguo a más reciente los clubes donde dirigió Diego Maradona:",
+        "opciones": [
+            "Mandiyú de Corrientes",
+            "Racing Club",
+            "Selección Argentina",
+            "Gimnasia y Esgrima La Plata"
+        ],
+        "respuesta": "Mandiyú de Corrientes, Racing Club, Selección Argentina, Gimnasia y Esgrima La Plata",
+        "categoria": "Historia",
+        "dificultad": "dificil",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "Mandiyú (1994)",
+            "Racing (1995)",
+            "Selección Argentina (2008-2010)",
+            "Gimnasia LP (2019-2020)"
+        ],
+        "pista_var": "Inició en el Litoral argentino y su última experiencia fue en el bosque platense."
+    },
+    {
+        "pregunta": "Ordená cronológicamente los últimos Balones de Oro ganados por Lionel Messi:",
+        "opciones": [
+            "2019",
+            "2021",
+            "2023"
+        ],
+        "respuesta": "2019, 2021, 2023",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "ordenar",
+        "items_ordenados": [
+            "2019 (6to)",
+            "2021 (7mo, Copa América)",
+            "2023 (8vo, Campeón del Mundo)"
+        ],
+        "pista_var": "Los últimos tres galardones que lo convirtieron en el más ganador de todos los tiempos."
+    },
+    {
+        "pregunta": "¿Qué jugador tiene el récord de haber anotado más goles oficiales en un solo año natural (91 goles)?",
+        "opciones": [
+            "Pelé (1958)",
+            "Gerd Müller (1972)",
+            "Lionel Messi (2012)",
+            "Cristiano Ronaldo (2013)"
+        ],
+        "respuesta": "Lionel Messi (2012)",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Superó los 85 goles de Gerd Müller en un año inolvidable con Barcelona y Argentina."
+    },
+    {
+        "pregunta": "¿Qué club inglés logró el récord de coronarse campeón invicto de la Premier League (The Invincibles) en 2003-2004?",
+        "opciones": [
+            "Chelsea",
+            "Manchester United",
+            "Arsenal",
+            "Manchester City"
+        ],
+        "respuesta": "Arsenal",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Dirigidos por Arsène Wenger, con Thierry Henry y Dennis Bergkamp en el ataque."
+    },
+    {
+        "pregunta": "¿Quién fue el arquero titular de Argentina en el Mundial de Brasil 2014?",
+        "opciones": [
+            "Mariano Andújar",
+            "Sergio Romero",
+            "Agustín Orion",
+            "Wilfredo Caballero"
+        ],
+        "respuesta": "Sergio Romero",
+        "categoria": "Selección Argentina",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "'Chiquito' se convirtió en héroe atajando dos penales ante Holanda en semifinales."
+    },
+    {
+        "pregunta": "¿Qué jugador brasileño ganó el Balón de Oro en 2005 tras encandilar al mundo en el FC Barcelona?",
+        "opciones": [
+            "Kaká",
+            "Ronaldo Nazário",
+            "Ronaldinho Gaúcho",
+            "Adriano"
+        ],
+        "respuesta": "Ronaldinho Gaúcho",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue ovacionado de pie por la hinchada del Real Madrid en el mismísimo Santiago Bernabéu."
+    },
+    {
+        "pregunta": "¿Cuántos minutos dura reglamentariamente un partido de fútbol profesional sin alargue?",
+        "opciones": [
+            "80 minutos",
+            "90 minutos",
+            "100 minutos",
+            "120 minutos"
+        ],
+        "respuesta": "90 minutos",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Dos tiempos de 45 minutos cada uno más el tiempo añadido por el árbitro."
+    },
+    {
+        "pregunta": "¿Qué país organizó y ganó el Mundial de 1966?",
+        "opciones": [
+            "Inglaterra",
+            "Alemania",
+            "Brasil",
+            "Italia"
+        ],
+        "respuesta": "Inglaterra",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Geoff Hurst anotó un triplete con el polémico 'gol fantasma' ante Alemania en Wembley."
+    },
+    {
+        "pregunta": "¿Quién dirigió a la Selección Argentina en la obtención de la Medalla de Oro en los Juegos Olímpicos de Beijing 2008?",
+        "opciones": [
+            "Marcelo Bielsa",
+            "Sergio Batista",
+            "Alejandro Sabella",
+            "José Pékerman"
+        ],
+        "respuesta": "Sergio Batista",
+        "categoria": "Selección Argentina",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "El 'Checho' condujo al equipo con Messi, Riquelme, Agüero y Di María como figuras."
+    },
+    {
+        "pregunta": "¿Qué club italiano descendió de categoría en 2006 tras el escándalo conocido como 'Calciopoli'?",
+        "opciones": [
+            "AC Milan",
+            "Juventus",
+            "Lazio",
+            "Fiorentina"
+        ],
+        "respuesta": "Juventus",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "La 'Vecchia Signora' jugó la Serie B en la temporada 2006-2007."
+    },
+    {
+        "pregunta": "¿Qué histórico jugador de River Plate y el fútbol argentino fue conocido como 'El Príncipe'?",
+        "opciones": [
+            "Enzo Francescoli",
+            "Ariel Ortega",
+            "Pablo Aimar",
+            "Marcelo Gallardo"
+        ],
+        "respuesta": "Enzo Francescoli",
+        "categoria": "Jugadores",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "El ídolo uruguayo que inspiró el nombre del hijo de Zinedine Zidane."
+    },
+    {
+        "pregunta": "¿En qué edición de la Copa América debutó el VAR por primera vez?",
+        "opciones": [
+            "Chile 2015",
+            "Centenario 2016",
+            "Brasil 2019",
+            "Brasil 2021"
+        ],
+        "respuesta": "Brasil 2019",
+        "categoria": "Historia",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Fue implementado en todos los encuentros del torneo ganado por el seleccionado local."
+    },
+    {
+        "pregunta": "¿Quién fue el director técnico de River Plate en la Copa Libertadores 1996?",
+        "opciones": [
+            "Héctor Veira",
+            "Ramón Díaz",
+            "Carlos Timoteo Griguol",
+            "Daniel Passarella"
+        ],
+        "respuesta": "Ramón Díaz",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Hernán Crespo anotó los dos goles decisivos en el Monumental ante América de Cali."
+    },
+    {
+        "pregunta": "¿Quién anotó el penal decisivo para Italia ante Francia en la final del Mundial de Alemania 2006?",
+        "opciones": [
+            "Andrea Pirlo",
+            "Daniele De Rossi",
+            "Fabio Grosso",
+            "Alessandro Del Piero"
+        ],
+        "respuesta": "Fabio Grosso",
+        "categoria": "Mundiales",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "El lateral izquierdo también había marcado el gol agónico a Alemania en semifinales."
+    },
+    {
+        "pregunta": "¿Qué club de fútbol de la Premier League juega en el estadio Anfield Road?",
+        "opciones": [
+            "Everton",
+            "Liverpool",
+            "Manchester City",
+            "Tottenham"
+        ],
+        "respuesta": "Liverpool",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Famoso por el cántico de su hinchada 'You'll Never Walk Alone'."
+    },
+    {
+        "pregunta": "¿En qué año se fundó el Club Atlético River Plate?",
+        "opciones": [
+            "1899",
+            "1901",
+            "1905",
+            "1910"
+        ],
+        "respuesta": "1901",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Fundado el 25 de mayo de 1901 tras la fusión de Santa Rosa y La Rosales."
+    },
+    {
+        "pregunta": "¿En qué año se fundó el Club Atlético Boca Juniors?",
+        "opciones": [
+            "1901",
+            "1903",
+            "1905",
+            "1908"
+        ],
+        "respuesta": "1905",
+        "categoria": "Clubes",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Fundado el 3 de abril de 1905 en la Plaza Solís por cinco jóvenes del barrio."
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador en la historia de la Selección de Brasil?",
+        "opciones": [
+            "Pelé",
+            "Ronaldo",
+            "Neymar Jr.",
+            "Romário"
+        ],
+        "respuesta": "Neymar Jr.",
+        "categoria": "Jugadores",
+        "dificultad": "medio",
+        "tipo": "multiple_choice",
+        "pista_var": "Superó los 77 goles oficiales de Pelé según los cómputos oficiales de la FIFA."
+    },
+    {
+        "pregunta": "¿Quién marcó el gol de volea más famoso de la final de Champions League en 2002 para el Real Madrid?",
+        "opciones": [
+            "Raúl González",
+            "Zinedine Zidane",
+            "Luís Figo",
+            "Roberto Carlos"
+        ],
+        "respuesta": "Zinedine Zidane",
+        "categoria": "Clubes",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Enganchó de zurda una pelota que cayó con nieve en Hampden Park ante el Bayer Leverkusen."
+    },
+    {
+        "pregunta": "¿Quién era el presidente de la AFA durante los títulos mundiales de 1986 y la era dorada de los 90?",
+        "opciones": [
+            "Armando Pérez",
+            "Julio Humberto Grondona",
+            "Claudio Tapia",
+            "Valentín Suárez"
+        ],
+        "respuesta": "Julio Humberto Grondona",
+        "categoria": "Historia",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "Presidió la AFA durante 35 años (1979-2014) con su lema 'Todo Pasa'."
+    },
+    {
+        "pregunta": "¿Qué selección europea ganó tres torneos mayores consecutivos (Euro 2008, Mundial 2010 y Euro 2012)?",
+        "opciones": [
+            "Alemania",
+            "Francia",
+            "España",
+            "Italia"
+        ],
+        "respuesta": "España",
+        "categoria": "Mundiales",
+        "dificultad": "facil",
+        "tipo": "multiple_choice",
+        "pista_var": "La era del 'tiki-taka' dirigida por Luis Aragonés y Vicente del Bosque."
+    },
+    {
+        "pregunta": "¿Qué arquero argentino fue campeón del mundo en 1978 con el dorsal número 5?",
+        "opciones": [
+            "Ubaldo Fillol",
+            "Ricardo La Volpe",
+            "Héctor Baley",
+            "Amadeo Carrizo"
+        ],
+        "respuesta": "Ubaldo Fillol",
+        "categoria": "Selección Argentina",
+        "dificultad": "dificil",
+        "tipo": "multiple_choice",
+        "pista_var": "En 1978 la Selección asignó los números por estricto orden alfabético de apellido."
+    }
+]

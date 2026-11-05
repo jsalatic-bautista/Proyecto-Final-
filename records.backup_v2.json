@@ -1,0 +1,236 @@
+[
+    {
+        "nombre": "bau",
+        "puntos": 5,
+        "total": 5,
+        "fecha": "23/10/2026 16:18",
+        "respuestas": [
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Uruguay",
+                "correcta": "Uruguay",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Messi",
+                "correcta": "Messi",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            }
+        ]
+    },
+    {
+        "nombre": "pa",
+        "puntos": 4,
+        "total": 5,
+        "fecha": "23/10/2026 16:19",
+        "respuestas": [
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Respuesta inválida",
+                "correcta": "Messi",
+                "acerto": false
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Uruguay",
+                "correcta": "Uruguay",
+                "acerto": true
+            }
+        ]
+    },
+    {
+        "nombre": "Bauti",
+        "puntos": 5,
+        "total": 5,
+        "fecha": "26/10/2026 08:29",
+        "respuestas": [
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Messi",
+                "correcta": "Messi",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Uruguay",
+                "correcta": "Uruguay",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            }
+        ]
+    },
+    {
+        "nombre": "gabriel",
+        "puntos": 4,
+        "total": 5,
+        "fecha": "26/10/2026 08:34",
+        "respuestas": [
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Argentina",
+                "correcta": "Uruguay",
+                "acerto": false
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Messi",
+                "correcta": "Messi",
+                "acerto": true
+            }
+        ],
+        "tiempo_segundos": 40.4,
+        "racha_max": 2
+    },
+    {
+        "nombre": "Mateo Loberza",
+        "puntos": 5,
+        "total": 5,
+        "fecha": "26/10/2026 08:44",
+        "respuestas": [
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Uruguay",
+                "correcta": "Uruguay",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Messi",
+                "correcta": "Messi",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            }
+        ],
+        "tiempo_segundos": 31.3,
+        "racha_max": 5
+    },
+    {
+        "nombre": "Mateo Loberza",
+        "puntos": 5,
+        "total": 5,
+        "fecha": "26/10/2026 08:45",
+        "respuestas": [
+            {
+                "pregunta": "¿En qué país se jugó el Mundial 2022?",
+                "respondio": "Qatar",
+                "correcta": "Qatar",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+                "respondio": "3",
+                "correcta": "3",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+                "respondio": "11",
+                "correcta": "11",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+                "respondio": "Messi",
+                "correcta": "Messi",
+                "acerto": true
+            },
+            {
+                "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+                "respondio": "Uruguay",
+                "correcta": "Uruguay",
+                "acerto": true
+            }
+        ],
+        "tiempo_segundos": 22.4,
+        "racha_max": 5
+    }
+]

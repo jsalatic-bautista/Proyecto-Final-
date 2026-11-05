@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>THE TIKI TAKA — Videojuego de Fútbol & Trivia Gaming</title>
+    <!-- Metadatos de Aplicación Web Progresiva (PWA) -->
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="64x64" href="/static/icons/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
+    <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+    <meta name="theme-color" content="#00f0ff">
+    <meta name="description" content="THE TIKI TAKA: El videojuego definitivo de preguntas de fútbol y trivia en estética gaming cyberpunk neón.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="THE TIKI TAKA">
+    <!-- Google Fonts: Orbitron, Rajdhani & Syncopate para estética gaming extrema -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="theme-cyber">
+    <!-- ================= OBJETIVO 2: INTRO CINEMATOGRÁFICA ================= -->
+    <div id="introCinematic" class="intro-cinematic">
+        <!-- Botón SALTAR visible durante toda la intro -->
+        <button id="btnSkipIntro" class="btn-skip-intro" title="Saltar intro cinematográfica">
+            <span>SALTAR</span> <span class="skip-arrow">▶</span>
+        </button>
+
+        <!-- Fase 1: Pantalla negra con logo neón titilando y PRESIONÁ PARA JUGAR -->
+        <div id="introSplash" class="intro-splash-screen">
+            <div class="intro-splash-glow"></div>
+            <div class="intro-logo-container">
+                <div class="intro-logo-badge-wrap">
+                    <img src="/static/img/logo.png" alt="THE TIKI TAKA" class="intro-hero-logo pulse-neon-logo">
+                </div>
+                <h1 class="intro-logo-title glitch-text" data-text="THE TIKI TAKA">
+                    <span class="intro-word-tiki">THE TIKI</span> <span class="intro-word-taka text-neon-cyan">TAKA</span>
+                </h1>
+                <p class="intro-logo-tag">ARENA CIBERNÉTICA DE FÚTBOL</p>
+            </div>
+
+            <div class="intro-action-container">
+                <button id="btnStartIntro" class="intro-press-btn btn-epic-pulse">
+                    <span class="btn-shine"></span>
+                    <span class="press-bolt">⚡</span>
+                    <span class="press-text">PRESIONÁ PARA JUGAR</span>
+                    <span class="press-bolt">⚡</span>
+                </button>
+                <p class="intro-sub-prompt">[ Clic, toque en pantalla o pulsa cualquier tecla ]</p>
+            </div>
+        </div>
+
+        <!-- Fase 2 a 5: Estadio Nocturno, Reflectores, Chilena y Gol -->
+        <div id="introStage" class="intro-stage hidden">
+            <!-- 4 Torres de Reflectores del Estadio -->
+            <div class="floodlights-system">
+                <div class="floodlight-tower" id="tower1">
+                    <div class="floodlight-head"></div>
+                    <div class="floodlight-beam beam-left-far"></div>
+                </div>
+                <div class="floodlight-tower" id="tower2">
+                    <div class="floodlight-head"></div>
+                    <div class="floodlight-beam beam-left-near"></div>
+                </div>
+                <div class="floodlight-tower" id="tower3">
+                    <div class="floodlight-head"></div>
+                    <div class="floodlight-beam beam-right-near"></div>
+                </div>
+                <div class="floodlight-tower" id="tower4">
+                    <div class="floodlight-head"></div>
+                    <div class="floodlight-beam beam-right-far"></div>
+                </div>
+            </div>
+
+            <!-- Canvas de animación de la chilena, estela lumínica y red -->
+            <canvas id="introCanvas" class="intro-canvas"></canvas>
+
+            <!-- Gran Banner de Gol con temblor, flash y logo de THE TIKI TAKA -->
+            <div id="introGoalBanner" class="intro-goal-banner hidden">
+                <div class="goal-burst-ring"></div>
+                <div class="intro-goal-logo-wrap">
+                    <img src="/static/img/logo.png" alt="THE TIKI TAKA" class="intro-goal-logo pulse-neon-logo">
+                </div>
+                <h2 class="goal-text-epic">¡GOOOOOOOL!</h2>
+                <p class="goal-sub-epic">¡GOLAZO HISTÓRICO DE THE TIKI TAKA!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Luz ambiente que sigue al cursor (Spotlight) -->
+    <div class="cursor-ambient-glow" id="cursorAmbientGlow"></div>
+
+    <!-- Fondo Synthwave Cyberpunk: Sol de Neón y Cuadrícula 3D en perspectiva -->
+    <div class="synthwave-horizon">
+        <div class="synthwave-sun"></div>
+        <div class="synthwave-grid"></div>
+        <div class="laser-beam laser-left"></div>
+        <div class="laser-beam laser-right"></div>
+    </div>
+
+    <!-- Canvas para partículas luminosas y fuegos artificiales -->
+    <canvas id="cyberCanvas" class="cyber-canvas"></canvas>
+
+    <!-- Destello de pantalla (Impact Flash) -->
+    <div id="screenFlashOverlay" class="screen-flash-overlay"></div>
+
+    <!-- Contenedor para texto flotante de combate (+100 PTS, RACHA x2) -->
+    <div id="floatingFxContainer" class="floating-fx-container"></div>
+
+    <!-- Barra de navegación / HUD Superior Futurista -->
+    <header class="hud-top">
+        <div class="hud-brand" role="banner">
+            <div class="hud-logo-icon-wrap">
+                <img src="/static/img/logo.png" alt="THE TIKI TAKA" class="hud-logo-img pulse-neon-glow">
+                <span class="logo-pulse-ring"></span>
+            </div>
+            <div class="brand-titles">
+                <span class="hud-logo-text">THE TIKI <span class="text-neon-cyan">TAKA</span></span>
+                <span class="hud-badge-neon">ULTRA GAMING</span>
+            </div>
+        </div>
+
+        <!-- Ecualizador de audio reactivo en el HUD -->
+        <div class="hud-center-gadgets">
+            <div class="hud-eq-visualizer" id="hudEqVisualizer" title="Audio Reactivo">
+                <span class="eq-bar bar-1"></span>
+                <span class="eq-bar bar-2"></span>
+                <span class="eq-bar bar-3"></span>
+                <span class="eq-bar bar-4"></span>
+                <span class="eq-bar bar-5"></span>
+            </div>
+            <div class="hud-status-chip">
+                <span class="status-dot-live"></span>
+                <span class="status-label">EN LÍNEA</span>
+            </div>
+        </div>
+
+        <div class="hud-actions">
+            <button id="btnToggleNarrator" class="hud-btn hud-btn-glow" title="Silenciar / Activar Relator en vivo" aria-label="Relator">
+                <span id="narratorIcon">🎙️</span>
+            </button>
+            <button id="btnInstallPwa" class="hud-btn hud-btn-glow hidden" title="Instalar Aplicación THE TIKI TAKA" aria-label="Instalar">
+                <span id="installIcon">📲</span>
+            </button>
+            <button id="btnToggleSound" class="hud-btn hud-btn-glow" title="Silenciar / Activar sonido" aria-label="Sonido">
+                <span id="soundIcon">🔊</span>
+            </button>
+            <button id="btnOpenConfig" class="hud-btn hud-btn-glow" title="Configuración" aria-label="Configuración">
+                <span>⚙️</span>
+            </button>
+            <button id="btnOpenHelp" class="hud-btn hud-btn-glow" title="Instrucciones del juego" aria-label="Instrucciones">
+                <span>📖</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal de Pantallas -->
+    <main class="game-container" id="gameContainer">
+
+        <!-- ================= PANTALLA 1: MENÚ PRINCIPAL (HUB GAMER) ================= -->
+        <section id="screenHome" class="screen screen-active">
+            <!-- Barra Superior del Jugador: Apodo, Rango y Barra de XP -->
+            <div class="player-hud-strip laser-border">
+                <div class="player-hud-profile">
+                    <div class="player-avatar-wrap">
+                        <div class="player-avatar" id="hudPlayerAvatar">⚽</div>
+                        <div class="avatar-ring-glow" id="hudAvatarGlow"></div>
+                    </div>
+                    <div class="player-identity">
+                        <div class="player-name-row">
+                            <span class="player-name-label">PILOTO:</span>
+                            <div class="input-inline-name-wrap">
+                                <input type="text" id="homePlayerName" class="player-nickname-input" placeholder="Tu Apodo" maxlength="18" autocomplete="off" spellcheck="false" value="Bau">
+                                <span class="edit-pen-icon" title="Editar apodo">✏️</span>
+                            </div>
+                        </div>
+                        <div class="player-rank-row">
+                            <span id="hudPlayerRankBadge" class="player-rank-badge rank-tier-1">
+                                <span class="rank-icon" id="hudRankIcon">⚽</span>
+                                <span class="rank-name" id="hudRankName">POTRERO</span>
+                            </span>
+                            <span class="player-level-badge" id="hudLevelBadge">NIVEL 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de XP Neón -->
+                <div class="player-xp-zone">
+                    <div class="xp-meta-row">
+                        <span class="xp-title">PROGRESO DE EXPERIENCIA</span>
+                        <span class="xp-numbers" id="hudXpNumbers">0 / 150 XP</span>
+                    </div>
+                    <div class="xp-bar-track">
+                        <div class="xp-bar-fill" id="hudXpFill" style="width: 0%;">
+                            <div class="xp-laser-head"></div>
+                        </div>
+                    </div>
+                    <div class="xp-next-tip" id="hudXpTip">Faltan 150 XP para Nivel 2</div>
+                </div>
+
+                <!-- Estadísticas Rápidas en Strip -->
+                <div class="player-quick-stats">
+                    <div class="quick-stat-box">
+                        <span class="quick-stat-val text-neon-yellow" id="statRecordMax">—</span>
+                        <span class="quick-stat-lbl">RÉCORD MÁX</span>
+                    </div>
+                    <div class="quick-stat-box">
+                        <span class="quick-stat-val text-neon-cyan" id="statTotalGames">—</span>
+                        <span class="quick-stat-lbl">PARTIDAS</span>
+                    </div>
+                    <div class="quick-stat-box">
+                        <span class="quick-stat-val text-neon-violet" id="statTotalQuestions">—</span>
+                        <span class="quick-stat-lbl">PREGUNTAS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Título del Menú y Guía de Navegación por Teclado -->
+            <div class="menu-header-bar">
+                <div class="menu-brand-header">
+                    <img src="/static/img/logo.png" alt="THE TIKI TAKA" class="menu-header-logo pulse-neon-glow">
+                    <div class="menu-brand-title">
+                        <h1 class="menu-logo-glitch" data-text="THE TIKI TAKA">THE TIKI <span class="text-neon-cyan">TAKA</span> <span class="hero-version-tag">v2.0</span></h1>
+                        <span class="menu-sub-tag">SELECCIONÁ TU MODO DE JUEGO</span>
+                    </div>
+                </div>
+                <div class="menu-keyboard-guide">
+                    <span class="key-pill">◄</span>
+                    <span class="key-pill">▲</span>
+                    <span class="key-pill">▼</span>
+                    <span class="key-pill">►</span>
+                    <span class="guide-txt">Navegar</span>
+                    <span class="key-pill">ENTER</span>
+                    <span class="guide-txt">Elegir</span>
+                </div>
+            </div>
+
+            <!-- Grid de Tarjetas Grandes Animadas del Menú -->
+            <div class="menu-cards-grid" id="menuCardsGrid" role="menu">
+                
+                <!-- 1. CAMINO AL MUNDIAL (Tarjeta Destacada Principal) -->
+                <article class="menu-card card-featured card-worldcup card-focused" id="cardWorldCup" tabindex="0" role="menuitem" data-action="worldcup">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="corner-bracket corner-tl"></div>
+                    <div class="corner-bracket corner-tr"></div>
+                    <div class="corner-bracket corner-bl"></div>
+                    <div class="corner-bracket corner-br"></div>
+                    <div class="card-badge-ribbon ribbon-gold">★ MODO PRINCIPAL</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-gold">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-trophy-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path class="trophy-base" d="M22 52 H42 M26 47 H38 M32 39 V47" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <path class="trophy-body" d="M20 16 H44 C44 29 38 39 32 39 C26 39 20 29 20 16 Z" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0, 240, 255, 0.08)"/>
+                                    <ellipse class="trophy-rim" cx="32" cy="16" rx="12" ry="3.5" stroke="var(--neon-cyan)" stroke-width="2.5" fill="rgba(0, 240, 255, 0.15)"/>
+                                    <path class="trophy-handle-left" d="M20 19 C11 19 9 31 20 34" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <path class="trophy-handle-right" d="M44 19 C53 19 55 31 44 34" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                    <polygon class="trophy-star" points="32,23 33.6,26.8 37.8,26.8 34.3,29.3 35.6,33.2 32,30.7 28.4,33.2 29.7,29.3 26.2,26.8 30.4,26.8" fill="#ffd000" stroke="#ffd000" stroke-width="0.5"/>
+                                    <line class="trophy-shine-beam" x1="22" y1="18" x2="31" y2="38" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                                    <g class="trophy-sparkles">
+                                        <path class="trophy-sparkle spk-1" d="M12 13 L13.5 10 L15 13 L18 14.5 L15 16 L13.5 19 L12 16 L9 14.5 Z" fill="var(--neon-cyan)"/>
+                                        <path class="trophy-sparkle spk-2" d="M51 11 L52.2 8.5 L53.5 11 L56 12.2 L53.5 13.5 L52.2 16 L51 13.5 L48.5 12.2 Z" fill="#ffd000"/>
+                                        <path class="trophy-sparkle spk-3" d="M48 43 L49 41 L50 43 L52 44 L50 45 L49 47 L48 45 L46 44 Z" fill="var(--neon-violet)"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h2 class="card-title-text text-gold-glow">CAMINO AL MUNDIAL</h2>
+                            <p class="card-desc-text">Conquistá la gloria máxima: superá Fase de Grupos, Octavos, Cuartos, Semis y la Gran Final para levantar la Copa del Mundo.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-gold">5 Rondas</span>
+                                <span class="card-tag tag-gold">Eliminación Directa</span>
+                                <span class="card-tag tag-gold">+300 XP</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label">JUGAR MUNDIAL</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. PENALES 1 VS 1 -->
+                <article class="menu-card card-penalties" id="cardPenalties" tabindex="0" role="menuitem" data-action="penalties">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-emerald">2 JUGADORES</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-emerald">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-penalties-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <g class="goal-net-mesh">
+                                        <path d="M15 22 H49 M15 28 H49 M15 34 H49 M15 40 H49 M15 46 H49" stroke="var(--neon-violet)" stroke-width="1.2" opacity="0.65"/>
+                                        <path d="M21 16 V48 M28 16 V48 M36 16 V48 M43 16 V48" stroke="var(--neon-violet)" stroke-width="1.2" opacity="0.65"/>
+                                        <path d="M11 22 L17 16 M17 16 H47 L53 22 M47 16 L53 22" stroke="var(--neon-violet)" stroke-width="1.2" opacity="0.65"/>
+                                    </g>
+                                    <g class="goal-posts">
+                                        <path d="M11 50 V22 H53 V50" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11 22 L17 16 H47 L53 22" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <line x1="17" y1="16" x2="17" y2="47" stroke="var(--neon-violet)" stroke-width="1.5" stroke-dasharray="2 3"/>
+                                        <line x1="47" y1="16" x2="47" y2="47" stroke="var(--neon-violet)" stroke-width="1.5" stroke-dasharray="2 3"/>
+                                    </g>
+                                    <g class="goal-ball">
+                                        <circle cx="32" cy="46" r="6.5" fill="#090d22" stroke="var(--neon-cyan)" stroke-width="2"/>
+                                        <polygon points="32,43 34.2,44.6 33.3,47.1 30.7,47.1 29.8,44.6" fill="var(--neon-violet)"/>
+                                        <line x1="32" y1="43" x2="32" y2="40.5" stroke="var(--neon-cyan)" stroke-width="1.2"/>
+                                        <line x1="34.2" y1="44.6" x2="36.8" y2="43.8" stroke="var(--neon-cyan)" stroke-width="1.2"/>
+                                        <line x1="33.3" y1="47.1" x2="35.3" y2="49.5" stroke="var(--neon-cyan)" stroke-width="1.2"/>
+                                        <line x1="30.7" y1="47.1" x2="28.7" y2="49.5" stroke="var(--neon-cyan)" stroke-width="1.2"/>
+                                        <line x1="29.8" y1="44.6" x2="27.2" y2="43.8" stroke="var(--neon-cyan)" stroke-width="1.2"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-emerald-glow">PENALES 1 VS 1</h3>
+                            <p class="card-desc-text">Duelo cara a cara en el mismo teclado o pantalla. Turnos alternados de tiro y atajada para definir quién manda en el arco.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-emerald">Mismo Teclado</span>
+                                <span class="card-tag tag-emerald">Tanda de 5</span>
+                                <span class="card-tag tag-emerald">Versus Local</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label">BATIRSE A DUELO</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. PARTIDA RÁPIDA (Modo Clásico Actual) -->
+                <article class="menu-card card-quick" id="cardQuick" tabindex="0" role="menuitem" data-action="quick">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-cyan">CLÁSICO</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-cyan">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-quick-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <circle cx="32" cy="35" r="20" stroke="var(--neon-cyan)" stroke-width="2.5" fill="rgba(0, 240, 255, 0.06)"/>
+                                    <path d="M29 9 H35 V15 H29 Z" stroke="var(--neon-violet)" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+                                    <line x1="18" y1="18" x2="14" y2="22" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="46" y1="18" x2="50" y2="22" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="32" y1="18" x2="32" y2="21" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="32" y1="49" x2="32" y2="52" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="15" y1="35" x2="18" y2="35" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round"/>
+                                    <line x1="46" y1="35" x2="49" y2="35" stroke="var(--neon-cyan)" stroke-width="2" stroke-linecap="round"/>
+                                    <path class="quick-bolt" d="M34 19 L25 33 H33 L29 47 L41 31 H33 Z" fill="rgba(0, 240, 255, 0.22)" stroke="var(--neon-cyan)" stroke-width="1.8" stroke-linejoin="round"/>
+                                    <g class="quick-hands">
+                                        <circle cx="32" cy="35" r="3" fill="var(--neon-violet)" stroke="#ffffff" stroke-width="1"/>
+                                        <line class="quick-hand-second" x1="32" y1="35" x2="32" y2="21" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="quick-hand-minute" x1="32" y1="35" x2="40" y2="35" stroke="var(--neon-violet)" stroke-width="2.2" stroke-linecap="round"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-cyan-glow">PARTIDA RÁPIDA</h3>
+                            <p class="card-desc-text">La experiencia clásica de THE TIKI TAKA: 5 preguntas al hueso para poner a prueba tus reflejos, sumar puntos y romper el récord.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-cyan">5 Preguntas</span>
+                                <span class="card-tag tag-cyan">Suma XP</span>
+                                <span class="card-tag tag-cyan">Récord Oficial</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label" id="btnPlayQuick">INICIAR PARTIDA</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. DESAFÍO DIARIO -->
+                <article class="menu-card card-daily" id="cardDaily" tabindex="0" role="menuitem" data-action="daily">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-violet">TRIVIA DEL DÍA</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-violet">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-daily-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="13" y="15" width="38" height="38" rx="4" stroke="var(--neon-violet)" stroke-width="2.5" fill="rgba(181, 55, 242, 0.08)"/>
+                                    <line x1="20" y1="11" x2="20" y2="17" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="32" y1="11" x2="32" y2="17" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="44" y1="11" x2="44" y2="17" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linecap="round"/>
+                                    <line x1="13" y1="24" x2="51" y2="24" stroke="var(--neon-violet)" stroke-width="2.5"/>
+                                    <g class="daily-sheet">
+                                        <path d="M13 24 H51 V49 C51 51.2 49.2 53 47 53 H17 C14.8 53 13 51.2 13 49 Z" fill="rgba(12, 16, 38, 0.95)" stroke="var(--neon-cyan)" stroke-width="2"/>
+                                        <text x="24" y="43" font-family="'Courier New', monospace" font-size="15" font-weight="900" fill="var(--neon-cyan)">24</text>
+                                    </g>
+                                    <g class="daily-ball">
+                                        <circle cx="43" cy="43" r="6" fill="#090d22" stroke="var(--neon-cyan)" stroke-width="1.8"/>
+                                        <polygon points="43,40 45,41.5 44.5,44 41.5,44 41,41.5" fill="var(--neon-violet)"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-violet-glow">DESAFÍO DIARIO</h3>
+                            <p class="card-desc-text">Trivia única de 5 preguntas cada 24 horas. Poné a prueba tu conocimiento, mantené tu racha y sumá bonificación.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-violet">1 Intento</span>
+                                <span class="card-tag tag-violet">Racha Activa</span>
+                                <span class="card-tag tag-violet">24 Horas</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label">JUGAR DESAFÍO</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. TIKIDLE (WORDLE DE FÚTBOL) -->
+                <article class="menu-card card-tikidle" id="cardTikidle" tabindex="0" role="menuitem" data-action="tikidle">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-emerald">WORDLE DE FÚTBOL</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-emerald">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-tikidle-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect x="6" y="10" width="52" height="38" rx="4" stroke="var(--neon-violet)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                                    <g class="tikidle-tile t-tile-1">
+                                        <rect x="9" y="13" width="13" height="13" rx="2.5" stroke="#00ff88" stroke-width="2" fill="rgba(0, 255, 136, 0.22)"/>
+                                        <text x="15.5" y="23" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#00ff88">G</text>
+                                    </g>
+                                    <g class="tikidle-tile t-tile-2">
+                                        <rect x="25.5" y="13" width="13" height="13" rx="2.5" stroke="#ffd000" stroke-width="2" fill="rgba(255, 208, 0, 0.22)"/>
+                                        <text x="32" y="23" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#ffd000">O</text>
+                                    </g>
+                                    <g class="tikidle-tile t-tile-3">
+                                        <rect x="42" y="13" width="13" height="13" rx="2.5" stroke="#00ff88" stroke-width="2" fill="rgba(0, 255, 136, 0.22)"/>
+                                        <text x="48.5" y="23" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#00ff88">L</text>
+                                    </g>
+                                    <g class="tikidle-tile t-tile-4">
+                                        <rect x="9" y="31" width="13" height="13" rx="2.5" stroke="#ffd000" stroke-width="2" fill="rgba(255, 208, 0, 0.22)"/>
+                                        <text x="15.5" y="41" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#ffd000">A</text>
+                                    </g>
+                                    <g class="tikidle-tile t-tile-5">
+                                        <rect x="25.5" y="31" width="13" height="13" rx="2.5" stroke="#00ff88" stroke-width="2" fill="rgba(0, 255, 136, 0.22)"/>
+                                        <text x="32" y="41" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#00ff88">Z</text>
+                                    </g>
+                                    <g class="tikidle-tile t-tile-6">
+                                        <rect x="42" y="31" width="13" height="13" rx="2.5" stroke="#ffd000" stroke-width="2" fill="rgba(255, 208, 0, 0.22)"/>
+                                        <text x="48.5" y="41" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="#ffd000">O</text>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-emerald-glow">TIKIDLE</h3>
+                            <p class="card-desc-text">El Wordle de fútbol de 5 letras: adiviná la palabra futbolera del día en 6 intentos. Nueva palabra cada medianoche.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-emerald">5 Letras</span>
+                                <span class="card-tag tag-emerald">6 Intentos</span>
+                                <span class="card-tag tag-emerald">Diario Oficial</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label">JUGAR TIKIDLE</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6. MI PERFIL -->
+                <article class="menu-card card-profile" id="cardProfile" tabindex="0" role="menuitem" data-action="profile">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-blue">CARRERA</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-blue">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-profile-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <g class="jersey-wrap">
+                                        <path class="jersey-outline" d="M24 14 C27 18 37 18 40 14 L52 23 L47 30 L42 27 V52 H22 V27 L17 30 L12 23 Z" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0, 240, 255, 0.08)"/>
+                                        <path d="M26 14 C28 17 32 20 32 20 C32 20 36 17 38 14" stroke="var(--neon-violet)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                        <line x1="12" y1="23" x2="17" y2="30" stroke="var(--neon-violet)" stroke-width="2.5"/>
+                                        <line x1="52" y1="23" x2="47" y2="30" stroke="var(--neon-violet)" stroke-width="2.5"/>
+                                        <text class="jersey-number" x="32" y="41" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="14" font-weight="900" fill="var(--neon-violet)" stroke="var(--neon-cyan)" stroke-width="0.8">10</text>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-blue-glow">MI PERFIL</h3>
+                            <p class="card-desc-text">Consultá tu nivel, rango de fútbol, porcentaje de eficacia, estadísticas de carrera y vitrina de medallas y logros.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-blue">Nivel & Rango</span>
+                                <span class="card-tag tag-blue">Medallero</span>
+                                <span class="card-tag tag-blue">Eficacia %</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label">VER PERFIL</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. SALÓN DE LA FAMA -->
+                <article class="menu-card card-records" id="cardRecords" tabindex="0" role="menuitem" data-action="records">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-amber">PODIO HISTÓRICO</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-amber">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-records-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <rect class="podium-step step-2" x="10" y="39" width="14" height="15" rx="2" stroke="var(--neon-violet)" stroke-width="2.2" fill="rgba(181, 55, 242, 0.1)"/>
+                                    <rect class="podium-step step-1" x="24" y="33" width="16" height="21" rx="2" stroke="var(--neon-cyan)" stroke-width="2.5" fill="rgba(0, 240, 255, 0.12)"/>
+                                    <rect class="podium-step step-3" x="40" y="43" width="14" height="11" rx="2" stroke="var(--neon-violet)" stroke-width="2.2" fill="rgba(181, 55, 242, 0.1)"/>
+                                    <text x="32" y="47" text-anchor="middle" font-family="monospace" font-size="11" font-weight="900" fill="var(--neon-cyan)">1</text>
+                                    <text x="17" y="50" text-anchor="middle" font-family="monospace" font-size="9" font-weight="900" fill="var(--neon-violet)">2</text>
+                                    <text x="47" y="51" text-anchor="middle" font-family="monospace" font-size="8" font-weight="900" fill="var(--neon-violet)">3</text>
+                                    <path d="M27 12 L32 20 L37 12" stroke="var(--neon-cyan)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <g class="fame-medal">
+                                        <circle cx="32" cy="24" r="7" stroke="#ffd000" stroke-width="2.2" fill="#201a05"/>
+                                        <polygon points="32,20 33.3,23 36.5,23 33.9,24.8 34.9,27.8 32,25.9 29.1,27.8 30.1,24.8 27.5,23 30.7,23" fill="#ffd000"/>
+                                    </g>
+                                    <g class="fame-sparkles">
+                                        <path class="fame-sparkle fspk-1" d="M19 19 L20 17 L21 19 L23 20 L21 21 L20 23 L19 21 L17 20 Z" fill="#ffd000"/>
+                                        <path class="fame-sparkle fspk-2" d="M43 17 L44 15 L45 17 L47 18 L45 19 L44 21 L43 19 L41 18 Z" fill="var(--neon-cyan)"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-amber-glow">SALÓN DE LA FAMA</h3>
+                            <p class="card-desc-text">Los mejores puntajes y goleadores de la historia de THE TIKI TAKA. Mirá las marcas de Bau y Pa y posicionate en el podio.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-amber">Top Récords</span>
+                                <span class="card-tag tag-amber">Tabla Oficial</span>
+                                <span class="card-tag tag-amber">Podio Gamer</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label" id="btnGoRecords">VER RANKING</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. CONFIGURACIÓN -->
+                <article class="menu-card card-config" id="cardConfig" tabindex="0" role="menuitem" data-action="config">
+                    <div class="card-glow-layer"></div>
+                    <div class="card-shimmer"></div>
+                    <div class="card-badge-ribbon ribbon-slate">AJUSTES</div>
+                    <div class="card-content-wrap">
+                        <div class="card-icon-halo halo-slate">
+                            <span class="card-icon">
+                                <svg class="menu-svg-icon icon-config-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <g class="config-gear">
+                                        <path d="M28 8 H36 L37 14 C39 15 41 16.5 43 18 L48 15 L52 19 L49 24 C50.5 26 51.5 28 52 30 L58 31 V37 L52 38 C51.5 40 50.5 42 49 44 L52 49 L48 53 L43 50 C41 51.5 39 53 37 54 L36 60 H28 L27 54 C25 53 23 51.5 21 50 L16 53 L12 49 L15 44 C13.5 42 12.5 40 12 38 L6 37 V31 L12 30 C12.5 28 13.5 26 15 24 L12 19 L16 15 L21 18 C23 16.5 25 15 27 14 Z" stroke="var(--neon-cyan)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(0, 240, 255, 0.08)"/>
+                                        <circle cx="32" cy="34" r="8" stroke="var(--neon-violet)" stroke-width="2.5" fill="#090d20"/>
+                                        <circle cx="32" cy="34" r="3" fill="var(--neon-cyan)"/>
+                                        <line x1="32" y1="26" x2="32" y2="42" stroke="var(--neon-violet)" stroke-width="1.5"/>
+                                        <line x1="24" y1="34" x2="40" y2="34" stroke="var(--neon-violet)" stroke-width="1.5"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="card-body-info">
+                            <h3 class="card-title-text text-slate-glow">CONFIGURACIÓN</h3>
+                            <p class="card-desc-text">Personalizá efectos de sonido sintetizados, iluminación y partículas, tiempo de respuesta y la intro cinematográfica.</p>
+                            <div class="card-tags-row">
+                                <span class="card-tag tag-slate">Audio Web</span>
+                                <span class="card-tag tag-slate">Partículas 3D</span>
+                                <span class="card-tag tag-slate">Intro ON/OFF</span>
+                            </div>
+                        </div>
+                        <div class="card-action-cue">
+                            <span class="cue-label" id="btnGoConfig">CONFIGURAR</span>
+                            <span class="cue-arrow">▶</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 2: CONFIGURACIÓN DE PARTIDA ================= -->
+        <section id="screenSetup" class="screen">
+            <div class="cyber-card config-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="card-header">
+                    <div class="header-badge">MODO PERSONALIZADO</div>
+                    <h2 class="card-title"><span class="title-icon">⚙️</span> PARÁMETROS DEL DESAFÍO</h2>
+                    <p class="card-subtitle">Ajustá la dificultad, el tiempo y los efectos a tu medida</p>
+                </div>
+
+                <div class="config-grid">
+                    <!-- Campo Nombre -->
+                    <div class="config-field">
+                        <label for="cfgPlayerName" class="cyber-label">
+                            <span class="cyber-label-dot"></span> APODO O NOMBRE
+                        </label>
+                        <div class="input-cyber-wrapper">
+                            <span class="input-prefix">👤</span>
+                            <input type="text" id="cfgPlayerName" class="cyber-input" placeholder="Anónimo" maxlength="20">
+                            <div class="input-border-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cantidad de Preguntas -->
+                    <div class="config-field">
+                        <div class="field-label-group">
+                            <label for="cfgQuestionCount" class="cyber-label">
+                                <span class="cyber-label-dot"></span> CANTIDAD DE PREGUNTAS
+                            </label>
+                            <span id="cfgQuestionCountVal" class="badge-value text-neon-cyan">5</span>
+                        </div>
+                        <input type="range" id="cfgQuestionCount" class="cyber-slider" min="1" max="5" value="5">
+                        <div class="slider-ticks">
+                            <span>1</span>
+                            <span id="cfgSliderMax">5</span>
+                        </div>
+                    </div>
+
+                    <!-- Interruptor Temporizador -->
+                    <div class="config-field">
+                        <div class="switch-field">
+                            <div>
+                                <span class="cyber-label">
+                                    <span class="cyber-label-dot"></span> MODO CONTRARRELOJ
+                                </span>
+                                <p class="field-help">Presión máxima: responde antes de que el reactor se agote</p>
+                            </div>
+                            <label class="cyber-switch">
+                                <input type="checkbox" id="cfgTimerActive">
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+
+                        <!-- Selector de Segundos -->
+                        <div id="cfgTimerOptions" class="timer-options-box hidden">
+                            <label class="cyber-label-sub">SEGUNDOS POR PREGUNTA</label>
+                            <div class="btn-group-timer">
+                                <button type="button" class="btn-pill-timer" data-sec="10">10s (Rápido)</button>
+                                <button type="button" class="btn-pill-timer active" data-sec="15">15s (Normal)</button>
+                                <button type="button" class="btn-pill-timer" data-sec="20">20s (Tranquilo)</button>
+                                <button type="button" class="btn-pill-timer" data-sec="30">30s (Estratégico)</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Opciones de Efectos y Sonido -->
+                    <div class="config-field">
+                        <div class="switch-field">
+                            <div>
+                                <span class="cyber-label">
+                                    <span class="cyber-label-dot"></span> EFECTOS DE SONIDO SINTETIZADOS
+                                </span>
+                                <p class="field-help">Audio espacial y chimes procedurales Web Audio</p>
+                            </div>
+                            <label class="cyber-switch">
+                                <input type="checkbox" id="cfgSoundToggle" checked>
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-field">
+                        <div class="switch-field">
+                            <div>
+                                <span class="cyber-label">
+                                    <span class="cyber-label-dot"></span> ILUMINACIÓN Y PARTÍCULAS
+                                </span>
+                                <p class="field-help">Fondo 3D synthwave, luces dinámicas y estelas de neón</p>
+                            </div>
+                            <label class="cyber-switch">
+                                <input type="checkbox" id="cfgAnimToggle" checked>
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-field">
+                        <div class="switch-field">
+                            <div>
+                                <span class="cyber-label">
+                                    <span class="cyber-label-dot"></span> INTRO CINEMATOGRÁFICA AL INICIAR
+                                </span>
+                                <p class="field-help">Estadio nocturno, reflectores, chilena y grito de gol al abrir el juego</p>
+                            </div>
+                            <label class="cyber-switch">
+                                <input type="checkbox" id="cfgIntroToggle" checked>
+                                <span class="slider-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <button id="btnCancelConfig" class="cyber-btn btn-ghost">VOLVER AL MENÚ</button>
+                    <button id="btnStartGame" class="cyber-btn btn-neon-cyan btn-glow-always">
+                        <span class="btn-shine"></span>
+                        <span>COMENZAR PARTIDA ▶</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 3: PARTIDA EN JUEGO (ARENA DE COMBATE) ================= -->
+        <section id="screenGame" class="screen">
+            <!-- HUD de Estado Superior -->
+            <div class="game-hud">
+                <div class="game-hud-status">
+                    <div class="hud-pill pill-question">
+                        <span class="pill-light light-cyan"></span>
+                        <span class="pill-title">RONDA</span>
+                        <span class="pill-number"><span id="hudCurrentQ">1</span><span class="slash">/</span><span id="hudTotalQ">5</span></span>
+                    </div>
+
+                    <div class="hud-pill pill-score">
+                        <span class="pill-light light-green"></span>
+                        <span class="pill-title">PUNTAJE</span>
+                        <span id="hudScore" class="pill-number text-neon-cyan">0</span>
+                    </div>
+
+                    <!-- Medidor de Racha / Combo Fire -->
+                    <div id="hudStreakPill" class="hud-pill pill-streak hidden">
+                        <span class="pill-light light-yellow"></span>
+                        <span class="pill-title">COMBO</span>
+                        <span id="hudStreak" class="pill-number text-neon-yellow">🔥 x0</span>
+                    </div>
+
+                    <!-- Reactor de Plasma / Temporizador Visual -->
+                    <div id="hudTimerPill" class="hud-pill pill-timer-reactor hidden">
+                        <div class="reactor-header">
+                            <span class="pill-title">REACTOR TEMPORAL</span>
+                            <span id="hudTimer" class="pill-number text-neon-cyan">15s</span>
+                        </div>
+                        <div class="plasma-tube">
+                            <div id="plasmaFluid" class="plasma-fluid" style="width: 100%;"></div>
+                            <div class="plasma-sparkle"></div>
+                        </div>
+                    </div>
+
+                    <button id="btnLeaveGame" class="hud-btn-abort" title="Salir de la partida">
+                        ✕ Salir
+                    </button>
+                </div>
+
+                <!-- Barra de Progreso Láser Superior -->
+                <div class="progress-track" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                    <div id="progressBar" class="progress-fill" style="width: 20%;">
+                        <div class="progress-laser-head"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barra Táctica de Comodines (Power-ups: 1 de cada uno por partida) -->
+            <div class="powerups-dock" id="powerupsDock" role="toolbar" aria-label="Comodines del Partido">
+                <button id="btnPowerup5050" class="powerup-btn" data-powerup="50_50" title="Elimina 2 opciones incorrectas">
+                    <span class="powerup-icon">✂️</span>
+                    <span class="powerup-badge">50/50</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnPowerupVar" class="powerup-btn" data-powerup="var" title="Consulta el VAR para una pista estratégica">
+                    <span class="powerup-icon">📺</span>
+                    <span class="powerup-badge">VAR</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnPowerupTime" class="powerup-btn" data-powerup="tiempo_extra" title="Suma 10 segundos extra al reloj">
+                    <span class="powerup-icon">⏳</span>
+                    <span class="powerup-badge">+10s</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnPowerupCrowd" class="powerup-btn" data-powerup="hinchada" title="Consulta el porcentaje de voto de la hinchada">
+                    <span class="powerup-icon">📣</span>
+                    <span class="powerup-badge">TRIBUNA</span>
+                    <span class="powerup-dot"></span>
+                </button>
+            </div>
+
+            <!-- Tarjeta Central de la Pregunta -->
+            <div class="cyber-card game-card laser-border" id="gameQuestionCard">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="question-header">
+                    <div class="question-tags-group">
+                        <span id="questionCategoryTag" class="question-category-tag">⚡ ARENA DE FÚTBOL</span>
+                        <span id="questionDifficultyTag" class="question-diff-badge diff-facil">FÁCIL</span>
+                    </div>
+                    <span class="keyboard-tip">PULSA 1, 2, 3, 4 O HAZ CLIC</span>
+                </div>
+
+                <div class="question-body">
+                    <h2 id="questionText" class="question-text">Cargando pregunta...</h2>
+                </div>
+
+                <!-- Grid de Opciones de Respuesta Tradicionales (4 opciones) -->
+                <div id="optionsGrid" class="options-grid">
+                    <!-- Se inyectan dinámicamente con app.js -->
+                </div>
+
+                <!-- Grid de Verdadero o Falso (2 opciones gigantes) -->
+                <div id="trueFalseGrid" class="true-false-grid hidden">
+                    <button class="tf-btn btn-tf-true" data-option="VERDADERO">
+                        <span class="tf-icon">✅</span>
+                        <span class="tf-text">VERDADERO</span>
+                    </button>
+                    <button class="tf-btn btn-tf-false" data-option="FALSO">
+                        <span class="tf-icon">❌</span>
+                        <span class="tf-text">FALSO</span>
+                    </button>
+                </div>
+
+                <!-- Contenedor de Pistas Progresivas -->
+                <div id="cluesContainer" class="clues-container hidden">
+                    <div class="clue-card clue-active" id="clueCard1">
+                        <div class="clue-header">
+                            <span class="clue-tag">PISTA 1 (DIFÍCIL)</span>
+                            <span class="clue-timer" id="clueCountdownTimer">5s</span>
+                        </div>
+                        <p class="clue-text" id="clueText1">Cargando pista 1...</p>
+                    </div>
+                    <div class="clue-card clue-locked" id="clueCard2">
+                        <div class="clue-header">
+                            <span class="clue-tag">PISTA 2 (MÁS FÁCIL)</span>
+                            <button id="btnUnlockClue2" class="cyber-btn-mini">🔓 Pedir Pista 2</button>
+                        </div>
+                        <p class="clue-text" id="clueText2">Se desbloqueará al agotarse el contador o al pedirla.</p>
+                    </div>
+                    <div id="cluesOptionsGrid" class="options-grid"></div>
+                </div>
+
+                <!-- Contenedor de Ordenar Cronológicamente -->
+                <div id="orderingContainer" class="ordering-container hidden">
+                    <p class="ordering-instruction">▲ ▼ Ordená los elementos de más antiguo a más reciente:</p>
+                    <div id="orderingItemsList" class="ordering-items-list">
+                        <!-- Inyectado dinámicamente con app.js -->
+                    </div>
+                    <button id="btnConfirmOrdering" class="cyber-btn btn-neon-cyan btn-glow-always btn-ordering-confirm">
+                        <span class="btn-shine"></span>
+                        <span>CONFIRMAR ORDEN CRONOLÓGICO ▶</span>
+                    </button>
+                </div>
+
+                <!-- Mensaje de Feedback Inmediato con Luces de Impacto -->
+                <div id="feedbackBanner" class="feedback-banner hidden" aria-live="polite">
+                    <div class="feedback-content">
+                        <span id="feedbackIcon" class="feedback-icon">✅</span>
+                        <div class="feedback-text-box">
+                            <span id="feedbackTitle" class="feedback-title">¡CORRECTO!</span>
+                            <span id="feedbackDesc" class="feedback-desc">Sumaste +1 punto</span>
+                        </div>
+                    </div>
+                    <button id="btnNextQuestion" class="cyber-btn btn-neon-cyan btn-next btn-glow-always">
+                        <span class="btn-shine"></span>
+                        <span>SIGUIENTE PREGUNTA ▶</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 4: RESULTADOS (PODIO CYBERPUNK) ================= -->
+        <section id="screenResults" class="screen">
+            <div class="cyber-card results-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <!-- Banner de Celebración de Récord Épico -->
+                <div id="recordCelebration" class="record-celebration hidden">
+                    <div class="trophy-halo"></div>
+                    <div class="trophy-badge">🏆</div>
+                    <h2 class="record-title glow-gold">¡NUEVO RÉCORD HISTÓRICO!</h2>
+                    <p class="record-subtitle">¡Tu nombre brilla en la cima del Salón de la Fama!</p>
+                </div>
+
+                <div class="results-header">
+                    <div class="results-badge-wrap">
+                        <span class="results-badge">FIN DE TRANSMISIÓN</span>
+                    </div>
+                    <h2 id="resultsVerdict" class="results-verdict text-neon-cyan">¡PARTIDA FINALIZADA!</h2>
+                    <p id="resultsPlayerName" class="results-player">Piloto: Bau</p>
+                </div>
+
+                <!-- Gran Anillo Holográfico de Puntaje -->
+                <div class="score-display-box">
+                    <div class="score-ring-wrap">
+                        <div class="score-ring-laser"></div>
+                        <div class="score-ring">
+                            <span id="finalScoreVal" class="score-number">5</span>
+                            <span id="finalTotalVal" class="score-total">/ 5</span>
+                        </div>
+                    </div>
+                    <div id="finalPercentage" class="score-percentage-tag text-neon-cyan">100% EFICACIA</div>
+                </div>
+
+                <!-- Grid de Métricas con Iluminación Led -->
+                <div class="results-metrics-grid">
+                    <div class="metric-card metric-success">
+                        <span class="metric-led led-green"></span>
+                        <span class="metric-icon">✅</span>
+                        <span class="metric-label">CORRECTAS</span>
+                        <span id="metricCorrect" class="metric-val text-neon-green">5</span>
+                    </div>
+
+                    <div class="metric-card metric-danger">
+                        <span class="metric-led led-red"></span>
+                        <span class="metric-icon">❌</span>
+                        <span class="metric-label">INCORRECTAS</span>
+                        <span id="metricIncorrect" class="metric-val text-neon-red">0</span>
+                    </div>
+
+                    <div class="metric-card metric-streak">
+                        <span class="metric-led led-yellow"></span>
+                        <span class="metric-icon">🔥</span>
+                        <span class="metric-label">MEJOR COMBO</span>
+                        <span id="metricStreak" class="metric-val text-neon-yellow">5</span>
+                    </div>
+
+                    <div class="metric-card metric-time">
+                        <span class="metric-led led-cyan"></span>
+                        <span class="metric-icon">⏱️</span>
+                        <span class="metric-label">TIEMPO TOTAL</span>
+                        <span id="metricTime" class="metric-val text-neon-cyan">18.4s</span>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción de Resultados -->
+                <div class="results-actions">
+                    <button id="btnPlayAgain" class="cyber-btn btn-neon-cyan btn-glow-always">
+                        <span class="btn-shine"></span>
+                        <span>🔄 JUGAR OTRA VEZ</span>
+                    </button>
+                    <button id="btnReviewAnswers" class="cyber-btn btn-neon-violet">
+                        <span>📝 REPASAR RESPUESTAS</span>
+                    </button>
+                    <button id="btnViewLeaderboard" class="cyber-btn btn-neon-blue">
+                        <span>🏆 SALÓN DE LA FAMA</span>
+                    </button>
+                    <button id="btnReturnHome" class="cyber-btn btn-ghost">
+                        <span>🏠 MENÚ PRINCIPAL</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 5: REPASO DE RESPUESTAS ================= -->
+        <section id="screenReview" class="screen">
+            <div class="cyber-card review-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="card-header">
+                    <h2 class="card-title"><span class="title-icon">📝</span> REGISTRO TÁCTICO DE RESPUESTAS</h2>
+                    <p class="card-subtitle">Análisis detallado de cada jugada en la partida anterior</p>
+                </div>
+
+                <div id="reviewList" class="review-list">
+                    <!-- Se llena automáticamente con las respuestas -->
+                </div>
+
+                <div class="card-footer">
+                    <button id="btnBackToResults" class="cyber-btn btn-neon-cyan">
+                        <span>◀ VOLVER A RESULTADOS</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 6: SALÓN DE LA FAMA (TABLA DE RÉCORDS) ================= -->
+        <section id="screenRecords" class="screen">
+            <div class="cyber-card records-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="card-header records-header">
+                    <div>
+                        <div class="header-badge">TABLA HISTÓRICA OFICIAL</div>
+                        <h2 class="card-title"><span class="title-icon">🏆</span> SALÓN DE LA FAMA</h2>
+                        <p class="card-subtitle">Los mejores puntajes registrados en THE TIKI TAKA</p>
+                    </div>
+                    <button id="btnRefreshRecords" class="cyber-btn-mini" title="Actualizar datos">
+                        🔄 Sincronizar
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="records-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>JUGADOR</th>
+                                <th>PUNTAJE</th>
+                                <th>EFICACIA</th>
+                                <th>FECHA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsTableBody">
+                            <tr>
+                                <td colspan="5" class="table-empty">Cargando datos del servidor...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-footer">
+                    <button id="btnRecordsBack" class="cyber-btn btn-ghost">
+                        <span>◀ MENÚ PRINCIPAL</span>
+                    </button>
+                    <button id="btnRecordsPlay" class="cyber-btn btn-neon-cyan btn-glow-always">
+                        <span class="btn-shine"></span>
+                        <span>DESAFIAR RÉCORD ▶</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 7: MI PERFIL Y PROGRESIÓN ================= -->
+        <section id="screenProfile" class="screen">
+            <div class="cyber-card profile-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="card-header profile-view-header">
+                    <div>
+                        <div class="header-badge">EXPEDIENTE DEPORTIVO</div>
+                        <h2 class="card-title"><span class="title-icon">👤</span> PERFIL DEL JUGADOR</h2>
+                        <p class="card-subtitle">Tu trayectoria, nivel, estadísticas de carrera y condecoraciones oficiales</p>
+                    </div>
+                    <button id="btnProfileQuickPlay" class="cyber-btn-mini" title="Jugar de inmediato">
+                        ⚡ Jugar Rápido
+                    </button>
+                </div>
+
+                <div class="profile-hero-block">
+                    <div class="profile-avatar-big-wrap">
+                        <div class="profile-avatar-big" id="profAvatarBig">⚽</div>
+                        <div class="profile-avatar-halo" id="profAvatarHalo"></div>
+                    </div>
+                    <div class="profile-meta-big">
+                        <div class="profile-name-editable">
+                            <input type="text" id="profNameInput" class="profile-name-field" maxlength="18" value="Bau">
+                            <button id="btnSaveProfName" class="cyber-btn-mini btn-glow-mini" title="Guardar apodo">💾 Guardar</button>
+                        </div>
+                        <div class="profile-rank-tag-wrap">
+                            <span id="profRankBadge" class="player-rank-badge rank-tier-1">
+                                <span class="rank-icon" id="profRankIcon">⚽</span>
+                                <span class="rank-name" id="profRankName">POTRERO</span>
+                            </span>
+                            <span id="profLevelTag" class="player-level-badge">NIVEL 1</span>
+                        </div>
+                        <div class="profile-xp-detail">
+                            <div class="xp-detail-text">
+                                <span class="xp-current" id="profXpText">0 XP acumulados</span>
+                                <span class="xp-next text-neon-cyan" id="profXpNextText">Faltan 150 XP para Nivel 2</span>
+                            </div>
+                            <div class="xp-bar-track track-lg">
+                                <div class="xp-bar-fill" id="profXpFill" style="width: 0%;">
+                                    <div class="xp-laser-head"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Métricas de Carrera -->
+                <div class="profile-stats-grid">
+                    <div class="prof-stat-box">
+                        <span class="prof-stat-icon">🎮</span>
+                        <span class="prof-stat-val text-neon-cyan" id="profStatGames">0</span>
+                        <span class="prof-stat-lbl">Partidas Jugadas</span>
+                    </div>
+                    <div class="prof-stat-box">
+                        <span class="prof-stat-icon">🎯</span>
+                        <span class="prof-stat-val text-neon-green" id="profStatAccuracy">0%</span>
+                        <span class="prof-stat-lbl">Eficacia Histórica</span>
+                    </div>
+                    <div class="prof-stat-box">
+                        <span class="prof-stat-icon">🔥</span>
+                        <span class="prof-stat-val text-neon-yellow" id="profStatStreak">0</span>
+                        <span class="prof-stat-lbl">Mejor Racha de Gol</span>
+                    </div>
+                    <div class="prof-stat-box">
+                        <span class="prof-stat-icon">⭐</span>
+                        <span class="prof-stat-val text-neon-violet" id="profStatPoints">0</span>
+                        <span class="prof-stat-lbl">Puntos Totales</span>
+                    </div>
+                </div>
+
+                <!-- Vitrina de Logros -->
+                <div class="profile-achievements-zone">
+                    <h3 class="achievements-title">🏅 VITRINA DE LOGROS Y MEDALLAS</h3>
+                    <div class="achievements-grid" id="achievementsGrid">
+                        <!-- Generados dinámicamente -->
+                    </div>
+                </div>
+
+                <div class="card-footer profile-footer">
+                    <button id="btnProfileBack" class="cyber-btn btn-ghost">
+                        <span>◀ VOLVER AL MENÚ</span>
+                    </button>
+                    <button id="btnProfilePlay" class="cyber-btn btn-neon-cyan btn-glow-always">
+                        <span class="btn-shine"></span>
+                        <span>COMENZAR PARTIDA ▶</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 8: MODO CAMINO AL MUNDIAL ================= -->
+        <section id="screenWorldCupArena" class="screen">
+            <!-- Barra Superior del Torneo Mundial -->
+            <div class="worldcup-bracket-bar laser-border">
+                <div class="wc-phase-step active" id="wcStep1" data-phase="fase_grupos">
+                    <span class="wc-step-icon">1</span>
+                    <span class="wc-step-label">GRUPOS</span>
+                    <span class="wc-step-badge">3 Fáciles</span>
+                </div>
+                <div class="wc-phase-arrow">▶</div>
+                <div class="wc-phase-step" id="wcStep2" data-phase="octavos">
+                    <span class="wc-step-icon">2</span>
+                    <span class="wc-step-label">OCTAVOS</span>
+                    <span class="wc-step-badge">3 Medias</span>
+                </div>
+                <div class="wc-phase-arrow">▶</div>
+                <div class="wc-phase-step" id="wcStep3" data-phase="cuartos">
+                    <span class="wc-step-icon">3</span>
+                    <span class="wc-step-label">CUARTOS</span>
+                    <span class="wc-step-badge">3 Medias</span>
+                </div>
+                <div class="wc-phase-arrow">▶</div>
+                <div class="wc-phase-step" id="wcStep4" data-phase="semifinal">
+                    <span class="wc-step-icon">4</span>
+                    <span class="wc-step-label">SEMIFINAL</span>
+                    <span class="wc-step-badge">4 Difíciles</span>
+                </div>
+                <div class="wc-phase-arrow">▶</div>
+                <div class="wc-phase-step wc-step-final" id="wcStep5" data-phase="final">
+                    <span class="wc-step-icon">🏆</span>
+                    <span class="wc-step-label">GRAN FINAL</span>
+                    <span class="wc-step-badge">5 Difíciles</span>
+                </div>
+            </div>
+
+            <!-- HUD de Estado de Fase -->
+            <div class="game-hud wc-hud">
+                <div class="game-hud-status">
+                    <div class="hud-pill pill-wc-phase">
+                        <span class="pill-light light-yellow"></span>
+                        <span class="pill-title" id="wcPhaseTitle">FASE DE GRUPOS</span>
+                        <span class="pill-number"><span id="wcCurrentQ">1</span>/<span id="wcTotalQ">3</span></span>
+                    </div>
+
+                    <div class="hud-pill pill-score">
+                        <span class="pill-light light-green"></span>
+                        <span class="pill-title">PUNTAJE</span>
+                        <span id="wcScore" class="pill-number text-neon-cyan">0</span>
+                    </div>
+
+                    <div id="wcTimerPill" class="hud-pill pill-timer-reactor">
+                        <div class="reactor-header">
+                            <span class="pill-title">RELOJ FIFA</span>
+                            <span id="wcTimer" class="pill-number text-neon-cyan">15s</span>
+                        </div>
+                        <div class="plasma-tube">
+                            <div id="wcPlasmaFluid" class="plasma-fluid" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <button id="btnLeaveWc" class="hud-btn-abort" title="Abandonar torneo">
+                        ✕ Salir
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comodines Dock del Mundial -->
+            <div class="powerups-dock" id="wcPowerupsDock">
+                <button id="btnWc5050" class="powerup-btn" data-powerup="50_50" title="Elimina 2 opciones incorrectas">
+                    <span class="powerup-icon">✂️</span>
+                    <span class="powerup-badge">50/50</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnWcVar" class="powerup-btn" data-powerup="var" title="Consulta el VAR">
+                    <span class="powerup-icon">📺</span>
+                    <span class="powerup-badge">VAR</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnWcTime" class="powerup-btn" data-powerup="tiempo_extra" title="+10s">
+                    <span class="powerup-icon">⏳</span>
+                    <span class="powerup-badge">+10s</span>
+                    <span class="powerup-dot"></span>
+                </button>
+                <button id="btnWcCrowd" class="powerup-btn" data-powerup="hinchada" title="La Hinchada">
+                    <span class="powerup-icon">📣</span>
+                    <span class="powerup-badge">HINCHADA</span>
+                    <span class="powerup-dot"></span>
+                </button>
+            </div>
+
+            <!-- Tarjeta Central de Pregunta Mundialista -->
+            <div class="cyber-card game-card wc-card laser-border" id="wcQuestionCard">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="question-header">
+                    <div class="question-tags-group">
+                        <span id="wcCategoryTag" class="question-category-tag">🏆 CAMINO AL MUNDIAL</span>
+                        <span id="wcDiffBadge" class="question-diff-badge diff-facil">FÁCIL</span>
+                    </div>
+                    <span class="keyboard-tip">PULSA 1, 2, 3, 4 O HAZ CLIC</span>
+                </div>
+
+                <div class="question-body">
+                    <h2 id="wcQuestionText" class="question-text">Cargando desafío mundialista...</h2>
+                </div>
+
+                <div id="wcOptionsGrid" class="options-grid"></div>
+
+                <div id="wcTrueFalseGrid" class="true-false-grid hidden">
+                    <button class="tf-btn btn-tf-true" data-option="VERDADERO">
+                        <span class="tf-icon">✅</span>
+                        <span class="tf-text">VERDADERO</span>
+                    </button>
+                    <button class="tf-btn btn-tf-false" data-option="FALSO">
+                        <span class="tf-icon">❌</span>
+                        <span class="tf-text">FALSO</span>
+                    </button>
+                </div>
+
+                <div id="wcCluesContainer" class="clues-container hidden">
+                    <div class="clue-card clue-active" id="wcClueCard1">
+                        <div class="clue-header">
+                            <span class="clue-tag">PISTA 1</span>
+                            <span class="clue-timer" id="wcClueTimer">5s</span>
+                        </div>
+                        <p class="clue-text" id="wcClueText1">Cargando pista...</p>
+                    </div>
+                    <div class="clue-card clue-locked" id="wcClueCard2">
+                        <div class="clue-header">
+                            <span class="clue-tag">PISTA 2</span>
+                            <button id="btnWcUnlockClue2" class="cyber-btn-mini">🔓 Pedir Pista 2</button>
+                        </div>
+                        <p class="clue-text" id="wcClueText2">Se desbloqueará al agotarse el contador.</p>
+                    </div>
+                    <div id="wcCluesOptionsGrid" class="options-grid"></div>
+                </div>
+
+                <div id="wcOrderingContainer" class="ordering-container hidden">
+                    <p class="ordering-instruction">▲ ▼ Ordená de más antiguo a más reciente:</p>
+                    <div id="wcOrderingItemsList" class="ordering-items-list"></div>
+                    <button id="btnWcConfirmOrdering" class="cyber-btn btn-neon-cyan btn-glow-always btn-ordering-confirm">
+                        <span>CONFIRMAR ORDEN ▶</span>
+                    </button>
+                </div>
+
+                <div id="wcFeedbackBanner" class="feedback-banner hidden">
+                    <div class="feedback-content">
+                        <span id="wcFeedbackIcon" class="feedback-icon">✅</span>
+                        <div class="feedback-text-box">
+                            <span id="wcFeedbackTitle" class="feedback-title">¡GOLAZO!</span>
+                            <span id="wcFeedbackDesc" class="feedback-desc">Avanzás firme hacia la copa.</span>
+                        </div>
+                    </div>
+                    <button id="btnWcNextQuestion" class="cyber-btn btn-neon-cyan btn-next btn-glow-always">
+                        <span>SIGUIENTE JUGADA ▶</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- OVERLAY DE ELIMINACIÓN DRAMÁTICA -->
+            <div id="worldCupEliminatedOverlay" class="wc-overlay hidden">
+                <div class="wc-storm-rain"></div>
+                <div class="cyber-card wc-overlay-content laser-border-danger">
+                    <div class="broken-trophy-icon">💔</div>
+                    <h2 class="wc-eliminated-title" id="wcEliminatedPhaseTitle">ELIMINADO EN CUARTOS</h2>
+                    <p class="wc-eliminated-desc">El sueño mundialista se terminó por hoy. Pero el fútbol siempre da revancha para los que nunca se rinden.</p>
+                    <div class="wc-overlay-actions">
+                        <button id="btnWcRetry" class="cyber-btn btn-neon-cyan btn-glow-always">
+                            <span>🔄 REINTENTAR CAMINO AL MUNDIAL</span>
+                        </button>
+                        <button id="btnWcExitMenu" class="cyber-btn btn-ghost">
+                            <span>🏠 MENÚ PRINCIPAL</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OVERLAY DE CAMPEÓN DEL MUNDO -->
+            <div id="worldCupChampionOverlay" class="wc-overlay wc-champion-overlay hidden">
+                <canvas id="wcTrophyCanvas" class="wc-trophy-canvas"></canvas>
+                <div class="cyber-card wc-overlay-content wc-champ-content laser-border-gold">
+                    <div class="trophy-solar-halo"></div>
+                    <div class="golden-trophy-render">🏆</div>
+                    <div class="champ-stars-row">⭐⭐⭐</div>
+                    <h2 class="wc-champion-title">¡SOMOS CAMPEONES DEL MUNDO!</h2>
+                    <p class="wc-champion-desc">¡Hiciste historia grande! Levantaste la Copa del Mundo tras 5 rondas memorables de puro fútbol y conocimientos.</p>
+                    <div class="champ-reward-pill">
+                        <span class="text-neon-yellow">⭐ +300 XP Otorgados</span>
+                        <span>• Insignia "Campeón Mundial" Desbloqueada</span>
+                    </div>
+                    <div class="wc-overlay-actions">
+                        <button id="btnWcCelebrateExit" class="cyber-btn btn-neon-gold btn-glow-always">
+                            <span>🏆 LEVANTAR LA COPA Y VOLVER AL MENÚ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 9: MODO PENALES 1 VS 1 ================= -->
+        <section id="screenPenaltiesArena" class="screen">
+            <!-- Marcador Estilo Transmisión de TV -->
+            <div class="penalties-tv-scoreboard laser-border">
+                <div class="tv-team-row team-p1">
+                    <div class="tv-team-badge">
+                        <span class="tv-team-flag">🔵</span>
+                        <span class="tv-team-name" id="penaltiesScoreName1">JUGADOR 1</span>
+                    </div>
+                    <div class="tv-beads-wrap" id="penaltiesBeads1">
+                        <span class="tv-bead bead-pending" data-round="0"></span>
+                        <span class="tv-bead bead-pending" data-round="1"></span>
+                        <span class="tv-bead bead-pending" data-round="2"></span>
+                        <span class="tv-bead bead-pending" data-round="3"></span>
+                        <span class="tv-bead bead-pending" data-round="4"></span>
+                    </div>
+                    <div class="tv-team-score" id="penaltiesScoreVal1">0</div>
+                </div>
+
+                <div class="tv-vs-badge" id="penaltiesVsBadge">VS</div>
+
+                <div class="tv-team-row team-p2">
+                    <div class="tv-team-score" id="penaltiesScoreVal2">0</div>
+                    <div class="tv-beads-wrap" id="penaltiesBeads2">
+                        <span class="tv-bead bead-pending" data-round="0"></span>
+                        <span class="tv-bead bead-pending" data-round="1"></span>
+                        <span class="tv-bead bead-pending" data-round="2"></span>
+                        <span class="tv-bead bead-pending" data-round="3"></span>
+                        <span class="tv-bead bead-pending" data-round="4"></span>
+                    </div>
+                    <div class="tv-team-badge">
+                        <span class="tv-team-name" id="penaltiesScoreName2">JUGADOR 2</span>
+                        <span class="tv-team-flag">🔴</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner de Turno de Tiro -->
+            <div class="penalty-turn-banner" id="penaltyTurnBanner">
+                <span class="turn-ball-icon">⚽</span>
+                <span id="penaltyTurnText" class="turn-text">¡PATEA JUGADOR 1!</span>
+                <span class="turn-prompt-tip">Respondé rápido para clavar el penal</span>
+            </div>
+
+            <!-- Tarjeta Central de Penal -->
+            <div class="cyber-card game-card penalty-card laser-border" id="penaltiesQuestionCard">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <div class="question-header">
+                    <span class="question-category-tag">🥅 TIRO PENAL DESDE LOS 11 METROS</span>
+                    <span id="penaltyTimerBadge" class="badge-value text-neon-cyan">⏱️ 10s</span>
+                </div>
+
+                <div class="question-body">
+                    <h2 id="penaltyQuestionText" class="question-text">Cargando penal...</h2>
+                </div>
+
+                <div id="penaltyOptionsGrid" class="options-grid"></div>
+
+                <!-- Feedback del Tiro -->
+                <div id="penaltyFeedbackBanner" class="feedback-banner hidden">
+                    <div class="feedback-content">
+                        <span id="penaltyFeedbackIcon" class="feedback-icon">⚽</span>
+                        <div class="feedback-text-box">
+                            <span id="penaltyFeedbackTitle" class="feedback-title">¡GOOOOOOOL!</span>
+                            <span id="penaltyFeedbackDesc" class="feedback-desc">La clavó junto al palo.</span>
+                        </div>
+                    </div>
+                    <button id="btnPenaltyNextTurn" class="cyber-btn btn-neon-cyan btn-next btn-glow-always">
+                        <span>SIGUIENTE TIRO ▶</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PODIO DEL GANADOR CON CARGADAS FUTBOLERAS SANAS -->
+            <div id="penaltiesPodiumOverlay" class="wc-overlay hidden">
+                <div class="cyber-card wc-overlay-content penalties-winner-card laser-border">
+                    <div class="podium-trophy-halo">🏆</div>
+                    <h2 class="penalties-winner-title" id="penaltiesWinnerTitle">¡JUGADOR 1 ES EL GANADOR!</h2>
+                    <div class="banter-quote-box">
+                        <span class="quote-mark">“</span>
+                        <p class="banter-text" id="penaltiesBanterText">¡A tu casa a tomar la chocolatada!</p>
+                        <span class="quote-mark">”</span>
+                    </div>
+                    <div class="penalties-final-score-display" id="penaltiesFinalScoreDisplay">
+                        5 - 3 en la tanda de penales
+                    </div>
+                    <div class="wc-overlay-actions">
+                        <button id="btnPenaltiesRematch" class="cyber-btn btn-neon-cyan btn-glow-always">
+                            <span>🔄 REVANCHA INMEDIATA</span>
+                        </button>
+                        <button id="btnPenaltiesExit" class="cyber-btn btn-ghost">
+                            <span>🏠 MENÚ PRINCIPAL</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PANTALLA 10: MINIJUEGO TIKIDLE (WORDLE DE FÚTBOL) ================= -->
+        <section id="screenTikidle" class="screen">
+            <div class="cyber-card tikidle-card laser-border">
+                <div class="corner-bracket corner-tl"></div>
+                <div class="corner-bracket corner-tr"></div>
+                <div class="corner-bracket corner-bl"></div>
+                <div class="corner-bracket corner-br"></div>
+
+                <!-- Cabecera de Tikidle -->
+                <div class="tikidle-header">
+                    <div class="tikidle-title-wrap">
+                        <div class="header-badge">WORDLE DE FÚTBOL DIARIO</div>
+                        <h2 class="card-title"><span class="title-icon">⚽</span> TIKIDLE</h2>
+                        <p class="card-subtitle" id="tikidleDateSubtitle">Palabra secreta de 5 letras • Intento <span id="tikidleAttemptNum">1</span> de 6</p>
+                    </div>
+                    <div class="tikidle-header-btns">
+                        <button id="btnTikidleStats" class="cyber-btn-mini" title="Estadísticas">
+                            📊 Estadísticas
+                        </button>
+                        <button id="btnTikidleHelp" class="cyber-btn-mini" title="Reglas">
+                            ❓ Reglas
+                        </button>
+                        <button id="btnTikidleExit" class="cyber-btn-mini" title="Volver al Menú">
+                            🏠 Menú
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Toast de notificaciones de Tikidle -->
+                <div id="tikidleToast" class="tikidle-toast hidden"></div>
+
+                <!-- Grilla de 6 x 5 -->
+                <div class="tikidle-board-area">
+                    <div class="tikidle-board" id="tikidleBoard">
+                        <div class="tikidle-row" data-row="0">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                        <div class="tikidle-row" data-row="1">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                        <div class="tikidle-row" data-row="2">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                        <div class="tikidle-row" data-row="3">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                        <div class="tikidle-row" data-row="4">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                        <div class="tikidle-row" data-row="5">
+                            <div class="tikidle-tile" data-col="0"></div>
+                            <div class="tikidle-tile" data-col="1"></div>
+                            <div class="tikidle-tile" data-col="2"></div>
+                            <div class="tikidle-tile" data-col="3"></div>
+                            <div class="tikidle-tile" data-col="4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teclado Virtual en Pantalla (con Ñ) -->
+                <div class="tikidle-keyboard" id="tikidleKeyboard">
+                    <div class="kb-row">
+                        <button class="kb-key" data-key="Q">Q</button>
+                        <button class="kb-key" data-key="W">W</button>
+                        <button class="kb-key" data-key="E">E</button>
+                        <button class="kb-key" data-key="R">R</button>
+                        <button class="kb-key" data-key="T">T</button>
+                        <button class="kb-key" data-key="Y">Y</button>
+                        <button class="kb-key" data-key="U">U</button>
+                        <button class="kb-key" data-key="I">I</button>
+                        <button class="kb-key" data-key="O">O</button>
+                        <button class="kb-key" data-key="P">P</button>
+                    </div>
+                    <div class="kb-row">
+                        <button class="kb-key" data-key="A">A</button>
+                        <button class="kb-key" data-key="S">S</button>
+                        <button class="kb-key" data-key="D">D</button>
+                        <button class="kb-key" data-key="F">F</button>
+                        <button class="kb-key" data-key="G">G</button>
+                        <button class="kb-key" data-key="H">H</button>
+                        <button class="kb-key" data-key="J">J</button>
+                        <button class="kb-key" data-key="K">K</button>
+                        <button class="kb-key" data-key="L">L</button>
+                        <button class="kb-key" data-key="Ñ">Ñ</button>
+                    </div>
+                    <div class="kb-row">
+                        <button class="kb-key kb-action" data-key="ENTER">ENTER</button>
+                        <button class="kb-key" data-key="Z">Z</button>
+                        <button class="kb-key" data-key="X">X</button>
+                        <button class="kb-key" data-key="C">C</button>
+                        <button class="kb-key" data-key="V">V</button>
+                        <button class="kb-key" data-key="B">B</button>
+                        <button class="kb-key" data-key="N">N</button>
+                        <button class="kb-key" data-key="M">M</button>
+                        <button class="kb-key kb-action" data-key="BACKSPACE">⌫</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal: Camino al Mundial -->
+    <div id="modalWorldCup" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border modal-wide">
+            <div class="modal-header">
+                <h3 class="modal-title"><span class="title-icon">🏆</span> CAMINO AL MUNDIAL</h3>
+                <button class="modal-close" data-close="modalWorldCup">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="tournament-preview-banner">
+                    <div class="trophy-halo-big">🏆</div>
+                    <div class="tournament-info-lead">
+                        <h4>LA GLORIA MÁXIMA DEL FÚTBOL</h4>
+                        <p>5 rondas decisivas donde cada error puede dejarte fuera de competencia.</p>
+                    </div>
+                </div>
+                <div class="tournament-stages-grid">
+                    <div class="stage-step-card">
+                        <span class="stage-num">1</span>
+                        <span class="stage-name">FASE DE GRUPOS</span>
+                        <span class="stage-desc">3 preguntas para clasificar</span>
+                    </div>
+                    <div class="stage-step-card">
+                        <span class="stage-num">2</span>
+                        <span class="stage-name">OCTAVOS</span>
+                        <span class="stage-desc">Mata-mata internacional</span>
+                    </div>
+                    <div class="stage-step-card">
+                        <span class="stage-num">3</span>
+                        <span class="stage-name">CUARTOS</span>
+                        <span class="stage-desc">Presión máxima de visitante</span>
+                    </div>
+                    <div class="stage-step-card">
+                        <span class="stage-num">4</span>
+                        <span class="stage-name">SEMIFINAL</span>
+                        <span class="stage-desc">A un paso de la gloria</span>
+                    </div>
+                    <div class="stage-step-card stage-final">
+                        <span class="stage-num">5</span>
+                        <span class="stage-name">GRAN FINAL</span>
+                        <span class="stage-desc">¡Copa del Mundo o nada!</span>
+                    </div>
+                </div>
+                <div class="tournament-reward-note">
+                    <span>⭐ Recompensa: <strong>+300 XP</strong> y la Condecoración "Campeón Mundial" en tu perfil.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-ghost" data-close="modalWorldCup">VOLVER AL MENÚ</button>
+                <button id="btnStartWorldCupModal" class="cyber-btn btn-neon-gold btn-glow-always">
+                    <span class="btn-shine"></span>
+                    <span>DISPUTAR CAMINO AL MUNDIAL ▶</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Penales 1 vs 1 -->
+    <div id="modalPenalties" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border">
+            <div class="modal-header">
+                <h3 class="modal-title"><span class="title-icon">🥅</span> PENALES 1 VS 1 (VERSUS LOCAL)</h3>
+                <button class="modal-close" data-close="modalPenalties">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="versus-matchup-box">
+                    <div class="versus-side side-player1">
+                        <span class="side-avatar">🔵</span>
+                        <span class="side-title">JUGADOR 1</span>
+                        <span class="side-keys">Teclas <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd></span>
+                    </div>
+                    <div class="versus-divider">VS</div>
+                    <div class="versus-side side-player2">
+                        <span class="side-avatar">🔴</span>
+                        <span class="side-title">JUGADOR 2</span>
+                        <span class="side-keys">Clics o Toque táctil</span>
+                    </div>
+                </div>
+                <div class="versus-rules-box">
+                    <div class="rule-bullet">⚽ <strong>Tanda reglamentaria de 5 tiros:</strong> Turnos alternados de pateador y arquero.</div>
+                    <div class="rule-bullet">⚡ <strong>Acierto = Gol:</strong> Si respondes bien, convertís; si fallás, el arquero la saca.</div>
+                    <div class="rule-bullet">🏆 <strong>Muerte súbita:</strong> Si empatan en los 5 tiros, van a definición tiro a tiro.</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-ghost" data-close="modalPenalties">VOLVER AL MENÚ</button>
+                <button id="btnStartPenaltiesModal" class="cyber-btn btn-neon-emerald btn-glow-always">
+                    <span class="btn-shine"></span>
+                    <span>INICIAR TANDA DE PENALES ▶</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Desafío Diario -->
+    <div id="modalDaily" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border">
+            <div class="modal-header">
+                <h3 class="modal-title"><span class="title-icon">📅</span> DESAFÍO DIARIO</h3>
+                <button class="modal-close" data-close="modalDaily">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="daily-badge-lead">
+                    <span class="daily-calendar-icon">🗓️</span>
+                    <div>
+                        <h4 id="dailyChallengeDateText">DESAFÍO DEL DÍA</h4>
+                        <p>Una trivia futbolera única de 5 preguntas disponible por 24 horas.</p>
+                    </div>
+                </div>
+                <div class="daily-rules-box">
+                    <div class="rule-bullet">🎯 <strong>1 Solo Intento:</strong> Tus aciertos quedan sellados en tu historial diario.</div>
+                    <div class="rule-bullet">🔥 <strong>Racha Diaria:</strong> Completar desafíos en días consecutivos multiplica tus XP.</div>
+                    <div class="rule-bullet">📋 <strong>Compartí estilo Wordle:</strong> Al terminar, copia tu cuadrícula de emojis para tus amigos.</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-ghost" data-close="modalDaily">VOLVER AL MENÚ</button>
+                <button id="btnStartDailyModal" class="cyber-btn btn-neon-violet btn-glow-always">
+                    <span class="btn-shine"></span>
+                    <span>JUGAR DESAFÍO DE HOY ▶</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Monitor Táctico del VAR (Comodín VAR) -->
+    <div id="modalVarClue" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border var-monitor-card">
+            <div class="var-screen-lines"></div>
+            <div class="modal-header var-header">
+                <div class="var-badge-header">
+                    <span class="var-rec-dot"></span>
+                    <span>VAR REPLAY • SALA VOR</span>
+                </div>
+                <button class="modal-close" data-close="modalVarClue">✕</button>
+            </div>
+            <div class="modal-body var-body">
+                <div class="var-whistle-icon">📺</div>
+                <h4 class="var-callout-title">REVISIÓN DE JUGADA EN EL VAR</h4>
+                <div class="var-clue-box">
+                    <p id="varClueContentText" class="var-clue-text">El VAR detectó una jugada clave...</p>
+                </div>
+                <p class="var-tip-note">💡 Esta información te ayuda a deducir la opción correcta sin dártela directo.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-neon-cyan" data-close="modalVarClue">ENTENDIDO, VOLVER AL JUEGO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: La Hinchada en la Tribuna (Comodín Hinchada) -->
+    <div id="modalCrowdVoting" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border crowd-poll-card">
+            <div class="modal-header">
+                <h3 class="modal-title"><span class="title-icon">📣</span> LA HINCHADA EN LA TRIBUNA</h3>
+                <button class="modal-close" data-close="modalCrowdVoting">✕</button>
+            </div>
+            <div class="modal-body">
+                <p class="crowd-lead">Así se divide el grito del estadio según los 80.000 hinchas:</p>
+                <div class="crowd-bars-container" id="crowdBarsContainer">
+                    <!-- Barras animadas inyectadas dinámicamente -->
+                </div>
+                <p class="crowd-disclaimer">⚡ La tribuna suele acertar, ¡pero a veces la pasión confunde!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-neon-cyan" data-close="modalCrowdVoting">CONFIRMAR MI DECISIÓN</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalHelp" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border">
+            <div class="modal-header">
+                <h3 class="modal-title">📖 CÓMO JUGAR A THE TIKI TAKA</h3>
+                <button class="modal-close" data-close="modalHelp">✕</button>
+            </div>
+            <div class="modal-body instructions-text">
+                <div class="instruction-step">
+                    <span class="step-badge">1</span>
+                    <div>
+                        <strong>Elegí tu apodo y configurá la partida:</strong>
+                        <p>Podés jugar al instante con los 5 desafíos o configurar el modo contrarreloj.</p>
+                    </div>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-badge">2</span>
+                    <div>
+                        <strong>Respondé con ratón o teclado:</strong>
+                        <p>Hacé clic en la tarjeta o pulsá las teclas <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd>, <kbd>4</kbd> o <kbd>A</kbd>, <kbd>B</kbd>, <kbd>C</kbd>, <kbd>D</kbd>.</p>
+                    </div>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-badge">3</span>
+                    <div>
+                        <strong>Mantené la racha de aciertos:</strong>
+                        <p>Cada respuesta correcta consecutiva incrementa tu multiplicador de combo visual y sonoro.</p>
+                    </div>
+                </div>
+                <div class="instruction-step">
+                    <span class="step-badge">4</span>
+                    <div>
+                        <strong>Superá los récords de Bau y Pa:</strong>
+                        <p>Tus marcas se registran en el Salón de la Fama con persistencia permanente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-neon-cyan" data-close="modalHelp">¡VAMOS A JUGAR!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación para Salir -->
+    <div id="modalConfirmLeave" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content modal-small laser-border">
+            <div class="modal-header">
+                <h3 class="modal-title">⚠️ ¿ABANDONAR PARTIDA?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Si salís ahora, se cancelará la partida actual y no se sumará a los récords históricos.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCancelLeave" class="cyber-btn btn-ghost">CONTINUAR JUGANDO</button>
+                <button id="btnConfirmLeave" class="cyber-btn btn-neon-red">SÍ, ABANDONAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Fin de Partida / Estadísticas de Tikidle -->
+    <div id="modalTikidleEnd" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border tikidle-end-card">
+            <div class="modal-header">
+                <h3 class="modal-title" id="tikidleEndTitle">🏆 ¡GOLAZO! ADIVINASTE</h3>
+                <button class="modal-close" data-close="modalTikidleEnd">✕</button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="tikidle-end-word-badge" id="tikidleEndWord">MESSI</div>
+                <div class="tikidle-end-desc-box">
+                    <span class="desc-badge">SABÍAS QUE...</span>
+                    <p class="tikidle-end-desc" id="tikidleEndDesc">Lionel Messi: Capitán de la Selección Argentina...</p>
+                </div>
+
+                <!-- Estadísticas de Tikidle -->
+                <div class="tikidle-stats-grid">
+                    <div class="tikidle-stat-box">
+                        <span class="stat-number" id="tikidleStatPlayed">0</span>
+                        <span class="stat-label">Jugadas</span>
+                    </div>
+                    <div class="tikidle-stat-box">
+                        <span class="stat-number" id="tikidleStatWinPct">0%</span>
+                        <span class="stat-label">% Victorias</span>
+                    </div>
+                    <div class="tikidle-stat-box">
+                        <span class="stat-number" id="tikidleStatStreak">0</span>
+                        <span class="stat-label">Racha</span>
+                    </div>
+                    <div class="tikidle-stat-box">
+                        <span class="stat-number" id="tikidleStatMaxStreak">0</span>
+                        <span class="stat-label">Mejor Racha</span>
+                    </div>
+                </div>
+
+                <!-- Distribución de Intentos (1 a 6) -->
+                <div class="tikidle-dist-container">
+                    <h4 class="dist-title">DISTRIBUCIÓN DE INTENTOS</h4>
+                    <div class="dist-bars" id="tikidleDistBars">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Botón Compartir Resultado -->
+                <div class="tikidle-share-section">
+                    <button id="btnTikidleShare" class="cyber-btn btn-neon-green btn-share-pulse">
+                        <span>📋 COMPARTIR RESULTADO</span>
+                    </button>
+                    <div id="tikidleShareCopied" class="share-copied-msg hidden">¡Copiado al portapapeles! 🟩🟨⬛</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-neon-cyan" data-close="modalTikidleEnd">CERRAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Reglas de Tikidle -->
+    <div id="modalTikidleHelp" class="cyber-modal hidden" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="cyber-card modal-content laser-border">
+            <div class="modal-header">
+                <h3 class="modal-title">⚽ CÓMO JUGAR A TIKIDLE</h3>
+                <button class="modal-close" data-close="modalTikidleHelp">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Adiviná la palabra secreta de <strong>5 letras relacionada al fútbol</strong> en <strong>6 intentos</strong>.</p>
+                <div class="help-examples">
+                    <div class="help-example-row">
+                        <span class="tile-mini tile-correct">M</span>
+                        <span class="tile-mini">E</span>
+                        <span class="tile-mini">S</span>
+                        <span class="tile-mini">S</span>
+                        <span class="tile-mini">I</span>
+                        <p><strong>VERDE:</strong> La letra está en la palabra y en la <strong>posición correcta</strong>.</p>
+                    </div>
+                    <div class="help-example-row">
+                        <span class="tile-mini">P</span>
+                        <span class="tile-mini tile-present">E</span>
+                        <span class="tile-mini">N</span>
+                        <span class="tile-mini">A</span>
+                        <span class="tile-mini">L</span>
+                        <p><strong>AMARILLO:</strong> La letra está en la palabra pero en <strong>otra posición</strong>.</p>
+                    </div>
+                    <div class="help-example-row">
+                        <span class="tile-mini">R</span>
+                        <span class="tile-mini">I</span>
+                        <span class="tile-mini tile-absent">V</span>
+                        <span class="tile-mini">E</span>
+                        <span class="tile-mini">R</span>
+                        <p><strong>GRIS:</strong> La letra <strong>no está</strong> en la palabra.</p>
+                    </div>
+                </div>
+                <div class="daily-rules-box">
+                    <div class="rule-bullet">📅 <strong>Una palabra al día:</strong> Cambia todos los días a medianoche (hora argentina).</div>
+                    <div class="rule-bullet">🔄 <strong>Mismo desafío para todos:</strong> Competí con tus amigos para ver quién adivina en menos intentos.</div>
+                    <div class="rule-bullet">⌨️ <strong>Teclado en pantalla o físico:</strong> Podés tipear con tu teclado o tocar las teclas virtuales.</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cyber-btn btn-neon-cyan" data-close="modalTikidleHelp">¡ENTENDIDO, A JUGAR!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de Sonido Procedural, Partículas y Lógica del Juego -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

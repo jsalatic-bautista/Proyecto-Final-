@@ -1,0 +1,27 @@
+[
+    {
+        "pregunta": "¿Cuántos Mundiales ganó Argentina?",
+        "opciones": ["2", "3", "4", "5"],
+        "respuesta": "3"
+    },
+    {
+        "pregunta": "¿Qué país ganó el primer Mundial de la historia (1930)?",
+        "opciones": ["Brasil", "Italia", "Uruguay", "Argentina"],
+        "respuesta": "Uruguay"
+    },
+    {
+        "pregunta": "¿En qué país se jugó el Mundial 2022?",
+        "opciones": ["Rusia", "Qatar", "Brasil", "Alemania"],
+        "respuesta": "Qatar"
+    },
+    {
+        "pregunta": "¿Cuántos jugadores tiene un equipo en cancha?",
+        "opciones": ["9", "10", "11", "12"],
+        "respuesta": "11"
+    },
+    {
+        "pregunta": "¿Quién es el máximo goleador de la historia de la Selección Argentina?",
+        "opciones": ["Batistuta", "Maradona", "Agüero", "Messi"],
+        "respuesta": "Messi"
+    }
+]
